@@ -53,12 +53,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\DatabaseContext.cs" />
+    <Compile Include="Data\Repositories\BaseRepository.cs" />
+    <Compile Include="Data\Repositories\BrandRepository.cs" />
+    <Compile Include="Data\Repositories\CatalogRepository.cs" />
+    <Compile Include="Data\Repositories\StoreRepository.cs" />
+    <Compile Include="Data\Services\BulkImportService.cs" />
+    <Compile Include="Data\Services\CatalogService.cs" />
+    <Compile Include="DTOs\CatalogImportResult.cs" />
+    <Compile Include="DTOs\CatalogItemDto.cs" />
+    <Compile Include="DTOs\ColumnMapping.cs" />
+    <Compile Include="Helpers\ExcelHelper.cs" />
+    <Compile Include="Helpers\JsonHelper.cs" />
+    <Compile Include="Helpers\TextFileHelper.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Brand.cs" />
+    <Compile Include="Models\CatalogItem.cs" />
+    <Compile Include="Models\Store.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainMenu.resx">
@@ -83,6 +99,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Moduller\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

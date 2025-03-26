@@ -16,5 +16,15 @@ namespace StokSayim
         {
             InitializeComponent();
         }
+
+        private void aceKullanicilar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aceFirmalar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
