@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace StokSayim.DTOs
 {
-    class ColumnMapping
+    public class ColumnMapping
     {
+        public string DestinationField { get; set; }
+        public string SourceColumn { get; set; }
+        public bool IsCustomField { get; set; }
+        public bool IsRequired { get; set; }
     }
 }
+

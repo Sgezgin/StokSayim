@@ -33,10 +33,11 @@
             this.flContainer = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.aceGenelMenu = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
-            this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             this.aceKullanicilar = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceFirmalar = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aceMarka = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
+            this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -71,26 +72,11 @@
             // 
             this.aceGenelMenu.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.aceKullanicilar,
-            this.aceFirmalar});
+            this.aceFirmalar,
+            this.aceMarka});
             this.aceGenelMenu.Expanded = true;
-            this.aceGenelMenu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aceTanimlar.ImageOptions.SvgImage")));
+            this.aceGenelMenu.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aceGenelMenu.ImageOptions.SvgImage")));
             this.aceGenelMenu.Name = "aceGenelMenu";
-            // 
-            // fluentDesignFormControl1
-            // 
-            this.fluentDesignFormControl1.FluentDesignForm = this;
-            this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
-            this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
-            this.fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(2);
-            this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1028, 31);
-            this.fluentDesignFormControl1.TabIndex = 2;
-            this.fluentDesignFormControl1.TabStop = false;
-            // 
-            // fluentFormDefaultManager1
-            // 
-            this.fluentFormDefaultManager1.DockingEnabled = false;
-            this.fluentFormDefaultManager1.Form = this;
             // 
             // aceKullanicilar
             // 
@@ -108,6 +94,30 @@
             this.aceFirmalar.Text = "Firma Tanımları";
             this.aceFirmalar.Click += new System.EventHandler(this.aceFirmalar_Click);
             // 
+            // aceMarka
+            // 
+            this.aceMarka.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aceMarka.ImageOptions.SvgImage")));
+            this.aceMarka.Name = "aceMarka";
+            this.aceMarka.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aceMarka.Text = "Marka Tanımları";
+            this.aceMarka.Click += new System.EventHandler(this.aceMarka_Click);
+            // 
+            // fluentDesignFormControl1
+            // 
+            this.fluentDesignFormControl1.FluentDesignForm = this;
+            this.fluentDesignFormControl1.Location = new System.Drawing.Point(0, 0);
+            this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
+            this.fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(2);
+            this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1028, 31);
+            this.fluentDesignFormControl1.TabIndex = 2;
+            this.fluentDesignFormControl1.TabStop = false;
+            // 
+            // fluentFormDefaultManager1
+            // 
+            this.fluentFormDefaultManager1.DockingEnabled = false;
+            this.fluentFormDefaultManager1.Form = this;
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -118,10 +128,12 @@
             this.Controls.Add(this.accordionControl1);
             this.Controls.Add(this.fluentDesignFormControl1);
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("MainMenu.IconOptions.Image")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainMenu";
             this.NavigationControl = this.accordionControl1;
-            this.Text = "Form1";
+            this.Text = "STK | Stok Sayim App V1.0";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).EndInit();
@@ -137,6 +149,7 @@
         private DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager fluentFormDefaultManager1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceKullanicilar;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceFirmalar;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aceMarka;
     }
 }
 

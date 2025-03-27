@@ -4,6 +4,10 @@ using System.Linq;
 using System.Windows.Forms;
 using DevExpress.UserSkins;
 using DevExpress.Skins;
+using StokSayim.Data.Repositories;
+using StokSayim.Data;
+using StokSayim.Data.Services;
+using System.Configuration;
 
 namespace StokSayim
 {
@@ -17,7 +21,26 @@ namespace StokSayim
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainMenu());
+
+            // Global servisleri başlat
+            try
+            {
+                Global.Initialize();
+
+                // Ana formu başlat
+                Application.Run(new MainMenu(
+                    Global.BrandRepository,
+                    Global.StoreRepository,
+                    Global.CatalogService,
+                    Global.BulkImportService
+                ));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Uygulama başlatılırken bir hata oluştu: " + ex.Message,
+                    "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

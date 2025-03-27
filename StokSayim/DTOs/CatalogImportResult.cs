@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace StokSayim.DTOs
 {
-    class CatalogImportResult
+    public class CatalogImportResult
     {
+        public bool Success { get; set; }
+        public int ProcessedRows { get; set; }
+        public int ImportedRows { get; set; }
+        public int FailedRows { get; set; }
+        public string ErrorMessage { get; set; }
+        public List<string> Warnings { get; set; } = new List<string>();
+        public TimeSpan ElapsedTime { get; set; }
     }
 }

@@ -23,4 +23,4 @@ namespace StokSayim.Models
         public virtual Brand Brand { get; set; }
     }
 }
-}
+
