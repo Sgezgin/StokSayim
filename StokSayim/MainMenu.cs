@@ -14,25 +14,12 @@ namespace StokSayim
 {
     public partial class MainMenu : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
-        private readonly BrandRepository _brandRepository;
-        private readonly StoreRepository _storeRepository;
-        private readonly CatalogService _catalogService;
-        private readonly BulkImportService _bulkImportService;
 
         private UserControl _activeControl;
 
 
-        public MainMenu(
-            BrandRepository brandRepository,
-            StoreRepository storeRepository,
-            CatalogService catalogService,
-            BulkImportService bulkImportService)
+        public MainMenu()
         {
-            _brandRepository = brandRepository;
-            _storeRepository = storeRepository;
-            _catalogService = catalogService;
-            _bulkImportService = bulkImportService;
-
             InitializeComponent();
         }
 
@@ -55,7 +42,7 @@ namespace StokSayim
             }
 
             flContainer.Controls.Clear();
-            flContainer.Controls.Add(new Moduller.Marka.MarkaMain(_brandRepository) { Dock = DockStyle.Fill });
+            flContainer.Controls.Add(new Moduller.Marka.MarkaMain() { Dock = DockStyle.Fill });
         }
     }
 }

@@ -28,12 +28,8 @@ namespace StokSayim
                 Global.Initialize();
 
                 // Ana formu başlat
-                Application.Run(new MainMenu(
-                    Global.BrandRepository,
-                    Global.StoreRepository,
-                    Global.CatalogService,
-                    Global.BulkImportService
-                ));
+                Application.Run(new MainMenu());
+
             }
             catch (Exception ex)
             {

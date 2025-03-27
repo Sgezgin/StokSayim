@@ -53,6 +53,8 @@ namespace StokSayim.Data.Services
 
                 // Toplam ve işlenen satır sayacı
                 int totalRows = sourceData.Rows.Count;
+
+                result.TotalCount = totalRows;
                 int processedRows = 0;
                 int batchSize = 1000; // Toplu işlem boyutu
 

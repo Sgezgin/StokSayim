@@ -18,10 +18,10 @@ namespace StokSayim.Moduller.Marka
         private BrandRepository _brandRepository;
 
 
-        public MarkaMain(BrandRepository brandRepository)
+        public MarkaMain()
         {
             InitializeComponent();
-            _brandRepository = brandRepository;
+            _brandRepository = Global.BrandRepository;
         }
 
         private void MarkaMain_Load(object sender, EventArgs e)
@@ -31,7 +31,7 @@ namespace StokSayim.Moduller.Marka
 
         private void MarkaList()
         {
-            Moduller.Marka.MarkaList ctr = new MarkaList(tabbedView1, _brandRepository);
+            Moduller.Marka.MarkaList ctr = new MarkaList(tabbedView1);
             BaseDocument doc = tabbedView1.AddDocument(ctr);
             ActiveDocument(ctr);
             doc.Caption = "Marka Listesi";

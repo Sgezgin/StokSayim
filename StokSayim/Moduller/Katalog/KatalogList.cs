@@ -51,7 +51,7 @@ namespace StokSayim.Moduller.Katalog
             try
             {
                 // Seçilen markaya ait katalog verilerini getir
-                var catalogItems = _catalogRepository.GetByBrand(_selectedBrandId);
+                var catalogItems = _catalogRepository.GetAllByBrandDirect(_selectedBrandId);
 
                 // Grid'e veriyi bağla
                 gridControlKatalog.DataSource = catalogItems;

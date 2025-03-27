@@ -10,6 +10,7 @@ namespace StokSayim.DTOs
     {
         public bool Success { get; set; }
         public int ProcessedRows { get; set; }
+        public int TotalCount { get; set; }
         public int ImportedRows { get; set; }
         public int FailedRows { get; set; }
         public string ErrorMessage { get; set; }

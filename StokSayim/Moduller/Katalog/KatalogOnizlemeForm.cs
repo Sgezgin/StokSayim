@@ -109,9 +109,9 @@ namespace StokSayim.Moduller.Katalog
                     if (result.Success)
                     {
                         XtraMessageBox.Show(
-                            $"Katalog başarıyla yüklendi.\nToplam: {result.ProcessedRows} satır\n" +
+                            $"Katalog başarıyla yüklendi.\nToplam: {result.TotalCount} satır\n" +
                             $"Başarılı: {result.ImportedRows} satır\n" +
-                            $"Başarısız: {result.FailedRows} satır\n" +
+                            $"Boş Barkod: {result.FailedRows} satır\n" +
                             $"Süre: {result.ElapsedTime.TotalSeconds:N1} saniye",
                             "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

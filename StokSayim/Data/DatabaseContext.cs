@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,8 +18,15 @@ namespace StokSayim.Data
         public DatabaseContext(string nameOrConnectionString)
             : base(nameOrConnectionString)
         {
-            // Veritabanı oluşturma stratejisi belirleyin (isteğe bağlı)
-            // Database.SetInitializer<DatabaseContext>(new CreateDatabaseIfNotExists<DatabaseContext>());
+            // Performans optimizasyonları
+            this.Configuration.ProxyCreationEnabled = false;
+            this.Configuration.LazyLoadingEnabled = false;
+
+            // Hata ayıklama için SQL sorgularını loglama
+            this.Database.Log = s => Debug.WriteLine(s);
+
+            Database.SetInitializer<DatabaseContext>(null);
+
         }
 
         public DbSet<Brand> Brands { get; set; }
@@ -32,7 +40,16 @@ namespace StokSayim.Data
             // Conventionları kaldır (isteğe bağlı)
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            // Barkod ve BrandID için indeks tanımlama
+            modelBuilder.Entity<CatalogItem>()
+                  .ToTable("CatalogItems"); // Tam tablo adını belirt
+
+            modelBuilder.Entity<Brand>()
+                .ToTable("Brands");
+
+            modelBuilder.Entity<Store>()
+                .ToTable("Stores");
+
+            // Barkod ve BrandID için gereklilikleri belirt (veritabanını değiştirmez)
             modelBuilder.Entity<CatalogItem>()
                 .Property(e => e.Barcode)
                 .HasMaxLength(50)

@@ -41,13 +41,17 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.barDuzenle = new DevExpress.XtraBars.BarButtonItem();
+            this.barKatalog = new DevExpress.XtraBars.BarButtonItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.barKatalog = new DevExpress.XtraBars.BarButtonItem();
-            this.barDuzenle = new DevExpress.XtraBars.BarButtonItem();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
@@ -141,8 +145,14 @@
             // 
             // gridView1
             // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.AutoSelectAllInEditor = false;
             this.gridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView1_MouseDown);
             // 
             // layoutControlGroup1
@@ -171,6 +181,24 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barKatalog)});
             this.popupMenu1.Manager = this.barManager1;
             this.popupMenu1.Name = "popupMenu1";
+            // 
+            // barDuzenle
+            // 
+            this.barDuzenle.Caption = "Marka Düzenle";
+            this.barDuzenle.Id = 1;
+            this.barDuzenle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barDuzenle.ImageOptions.Image")));
+            this.barDuzenle.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barDuzenle.ImageOptions.LargeImage")));
+            this.barDuzenle.Name = "barDuzenle";
+            this.barDuzenle.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barDuzenle_ItemClick);
+            // 
+            // barKatalog
+            // 
+            this.barKatalog.Caption = "Katalog";
+            this.barKatalog.Id = 0;
+            this.barKatalog.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barKatalog.ImageOptions.Image")));
+            this.barKatalog.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barKatalog.ImageOptions.LargeImage")));
+            this.barKatalog.Name = "barKatalog";
+            this.barKatalog.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barKatalog_ItemClick);
             // 
             // barManager1
             // 
@@ -216,23 +244,33 @@
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 571);
             // 
-            // barKatalog
+            // gridColumn1
             // 
-            this.barKatalog.Caption = "Katalog";
-            this.barKatalog.Id = 0;
-            this.barKatalog.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barKatalog.ImageOptions.Image")));
-            this.barKatalog.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barKatalog.ImageOptions.LargeImage")));
-            this.barKatalog.Name = "barKatalog";
-            this.barKatalog.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barKatalog_ItemClick);
+            this.gridColumn1.Caption = "gridColumn1";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
             // 
-            // barDuzenle
+            // gridColumn2
             // 
-            this.barDuzenle.Caption = "Marka Düzenle";
-            this.barDuzenle.Id = 1;
-            this.barDuzenle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barDuzenle.ImageOptions.Image")));
-            this.barDuzenle.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barDuzenle.ImageOptions.LargeImage")));
-            this.barDuzenle.Name = "barDuzenle";
-            this.barDuzenle.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barDuzenle_ItemClick);
+            this.gridColumn2.Caption = "gridColumn2";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "gridColumn3";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "gridColumn4";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 3;
             // 
             // MarkaList
             // 
@@ -285,5 +323,9 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
     }
 }

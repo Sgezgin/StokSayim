@@ -27,12 +27,12 @@ namespace StokSayim.Moduller.Marka
 
         private BrandRepository _brandRepository;
 
-        public MarkaList(TabbedView tabbedView1, BrandRepository brandRepository)
+        public MarkaList(TabbedView tabbedView1)
         {
             InitializeComponent();
             properties.Style = FlyoutStyle.Popup;
             tabbedView = tabbedView1;
-            _brandRepository = brandRepository;
+            _brandRepository = Global.BrandRepository;
         }
 
         private void MarkaTanim_Load(object sender, EventArgs e)

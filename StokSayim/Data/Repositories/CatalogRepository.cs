@@ -31,6 +31,51 @@ namespace StokSayim.Data.Repositories
                 .ToListAsync();
         }
 
+
+        public List<CatalogItem> GetAllByBrandDirect(int brandId)
+        {
+            // Yeni bir context oluştur
+            using (var newContext = new DatabaseContext(Global.ConnectionString))
+            {
+                var result = newContext.CatalogItems
+                    .Where(c => c.BrandID == brandId)
+                    .OrderBy(c => c.Barcode)
+                    .ToList();
+
+                return result;
+            }
+        }
+
+        public List<CatalogItem> GetAllByBrand(int brandId)
+        {
+            try
+            {
+                // 1. Önce count kontrolü yapın
+                var count = _context.CatalogItems.Count(c => c.BrandID == brandId);
+                Console.WriteLine($"BrandID={brandId} için bulunan kayıt sayısı: {count}");
+
+                // 2. SQL sorgusunu yazdırın (Debug için)
+                var query = _context.CatalogItems.Where(c => c.BrandID == brandId);
+                var sql = query.ToString(); // Bu satır EF Core'da çalışır, EF6'da farklı bir yöntem gerekebilir
+                Console.WriteLine($"Oluşturulan SQL sorgusu: {sql}");
+
+                // 3. Sorguyu çalıştırın
+                var result = query.OrderBy(c => c.Barcode).ToList();
+                Console.WriteLine($"Sonuç listesi eleman sayısı: {result.Count}");
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                // Hata durumunda detaylı loglama
+                Console.WriteLine($"GetAllByBrand hatası: {ex.Message}");
+                Console.WriteLine($"StackTrace: {ex.StackTrace}");
+
+                // Hatayı yukarı fırlat
+                throw;
+            }
+        }
+
         // GetByBrand - senkron versiyon
         public IEnumerable<CatalogItem> GetByBrand(int brandId, int pageNumber = 1, int pageSize = 100)
         {
