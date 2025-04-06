@@ -36,10 +36,10 @@
             this.accordionControlElement14 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement16 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement17 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement18 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.acePersonelslemleri = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement19 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement20 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aceMarkaTanimlari = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
@@ -84,10 +84,10 @@
             this.accordionControlElement14,
             this.accordionControlElement16,
             this.accordionControlElement17,
-            this.accordionControlElement18,
+            this.acePersonelslemleri,
             this.accordionControlElement19,
             this.accordionControlElement20,
-            this.accordionControlElement21});
+            this.aceMarkaTanimlari});
             this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.Name = "accordionControlElement1";
             this.accordionControlElement1.Text = "Element1";
@@ -113,12 +113,13 @@
             this.accordionControlElement17.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement17.Text = "Barkod Ara";
             // 
-            // accordionControlElement18
+            // acePersonelslemleri
             // 
-            this.accordionControlElement18.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement18.ImageOptions.SvgImage")));
-            this.accordionControlElement18.Name = "accordionControlElement18";
-            this.accordionControlElement18.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement18.Text = "Personel İşlemleri";
+            this.acePersonelslemleri.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement18.ImageOptions.SvgImage")));
+            this.acePersonelslemleri.Name = "acePersonelslemleri";
+            this.acePersonelslemleri.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.acePersonelslemleri.Text = "Personel İşlemleri";
+            this.acePersonelslemleri.Click += new System.EventHandler(this.acePersonelslemleri_Click);
             // 
             // accordionControlElement19
             // 
@@ -133,11 +134,12 @@
             this.accordionControlElement20.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement20.Text = "Tanımlar";
             // 
-            // accordionControlElement21
+            // aceMarkaTanimlari
             // 
-            this.accordionControlElement21.Name = "accordionControlElement21";
-            this.accordionControlElement21.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement21.Text = "Marka Tanımları";
+            this.aceMarkaTanimlari.Name = "aceMarkaTanimlari";
+            this.aceMarkaTanimlari.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aceMarkaTanimlari.Text = "Marka Tanımları";
+            this.aceMarkaTanimlari.Click += new System.EventHandler(this.aceMarkaTanimlari_Click);
             // 
             // fluentDesignFormControl1
             // 
@@ -229,10 +231,10 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement14;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement16;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement17;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement18;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement acePersonelslemleri;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement19;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement20;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement21;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aceMarkaTanimlari;
     }
 }
 

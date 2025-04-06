@@ -40,5 +40,11 @@ namespace StokSayim
             this.Hide();
             frm.ShowDialog();
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            txtKullaniciAdi.Text = "admin";
+            txtSifre.Text = "admin";
+        }
     }
 }

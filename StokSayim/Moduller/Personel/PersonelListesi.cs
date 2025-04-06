@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
+using System.Data;
 using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
-namespace StokSayim
+namespace StokSayim.Moduller.Personel
 {
-    public partial class Form1 : Form
+    public partial class PersonelListesi : DevExpress.XtraEditors.XtraUserControl
     {
-        public Form1()
+        public PersonelListesi()
         {
             InitializeComponent();
         }
