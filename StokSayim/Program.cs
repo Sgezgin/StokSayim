@@ -28,7 +28,7 @@ namespace StokSayim
                 Global.Initialize();
 
                 // Ana formu başlat
-                Application.Run(new MainMenu());
+                Application.Run(new Login());
 
             }
             catch (Exception ex)
