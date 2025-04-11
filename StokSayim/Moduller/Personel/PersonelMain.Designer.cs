@@ -240,6 +240,7 @@
             this.barPersonelEkle.Id = 23;
             this.barPersonelEkle.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barPersonelEkle.ImageOptions.SvgImage")));
             this.barPersonelEkle.Name = "barPersonelEkle";
+            this.barPersonelEkle.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barPersonelEkle_ItemClick);
             // 
             // barButtonItem6
             // 

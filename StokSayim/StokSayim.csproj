@@ -108,6 +108,7 @@
     <Compile Include="Data\Repositories\BaseRepository.cs" />
     <Compile Include="Data\Repositories\BrandRepository.cs" />
     <Compile Include="Data\Repositories\CatalogRepository.cs" />
+    <Compile Include="Data\Repositories\PersonelRepository.cs" />
     <Compile Include="Data\Repositories\StoreRepository.cs" />
     <Compile Include="Data\Services\BulkImportService.cs" />
     <Compile Include="Data\Services\CatalogService.cs" />
@@ -132,6 +133,7 @@
     </Compile>
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\CatalogItem.cs" />
+    <Compile Include="Models\Personel.cs" />
     <Compile Include="Models\Store.cs" />
     <Compile Include="Moduller\Katalog\KatalogList.cs">
       <SubType>UserControl</SubType>
@@ -162,6 +164,12 @@
     </Compile>
     <Compile Include="Moduller\Marka\MarkaList.Designer.cs">
       <DependentUpon>MarkaList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Moduller\Personel\PersonelEkleDuzenle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Moduller\Personel\PersonelEkleDuzenle.Designer.cs">
+      <DependentUpon>PersonelEkleDuzenle.cs</DependentUpon>
     </Compile>
     <Compile Include="Moduller\Personel\PersonelListesi.cs">
       <SubType>UserControl</SubType>
@@ -197,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Moduller\Marka\MarkaList.resx">
       <DependentUpon>MarkaList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Moduller\Personel\PersonelEkleDuzenle.resx">
+      <DependentUpon>PersonelEkleDuzenle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Moduller\Personel\PersonelListesi.resx">
       <DependentUpon>PersonelListesi.cs</DependentUpon>

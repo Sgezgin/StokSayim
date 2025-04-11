@@ -32,6 +32,7 @@ namespace StokSayim.Data
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Store> Stores { get; set; }
         public DbSet<CatalogItem> CatalogItems { get; set; }
+        public DbSet<Personel> Personel { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

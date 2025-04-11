@@ -50,6 +50,9 @@ namespace StokSayim
         /// </summary>
         public static BulkImportService BulkImportService { get; private set; }
 
+        public static PersonelRepository PersonelRepository { get; private set; }
+
+
         /// <summary>
         /// Global servisleri başlatır
         /// </summary>
@@ -69,6 +72,8 @@ namespace StokSayim
             BrandRepository = new BrandRepository(DbContext);
             StoreRepository = new StoreRepository(DbContext);
             CatalogRepository = new CatalogRepository(DbContext);
+            PersonelRepository = new PersonelRepository(DbContext);
+
 
             // Servisleri oluştur
             CatalogService = new CatalogService(CatalogRepository, ConnectionString);
