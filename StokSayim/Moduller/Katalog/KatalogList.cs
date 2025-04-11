@@ -203,6 +203,22 @@ namespace StokSayim.Moduller.Katalog
             var caption = e.Button.Properties.Caption;
             if (caption == "Çıkış") (this.Parent as Form).DialogResult = DialogResult.No;
             else if (caption == "Katalog Yükle") YeniKatalogYukle();
+            else if (caption == "Dışa Aktar") DisaAktar();
+        }
+
+        private void DisaAktar()
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Excel Dosyası (*.xlsx)|*.xlsx"; // Sadece .xlsx dosyası göster
+                sfd.Title = "Excel Olarak Kaydet";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    gridControlKatalog.ExportToXlsx(sfd.FileName);
+                    MessageBox.Show("Export başarıyla tamamlandı!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
     }
 }

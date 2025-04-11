@@ -40,22 +40,25 @@ namespace StokSayim.Moduller.Marka
             if (_brand != null)
             {
                 // Düzenleme modu
-                txtmarkaKodu.Text = _brand.BrandCode;
+                txtMarkaKodu.Text = _brand.BrandCode;
                 txtMarkaAdi.Text = _brand.BrandName;
+                memAciklama.Text = _brand.Aciklama;
+                labelControl1.Text = "Marka Düzenle";
 
-                labelControl.Text = "Marka Düzenle";
+            
             }
             else
             {
                 // Ekleme modu
-                labelControl.Text = "Yeni Marka Ekle";
+                labelControl1.Text = "Yeni Marka Ekle";
                 _brand = new Brand();
+
             }
         }
 
         private void Kaydet()
         {
-            if (string.IsNullOrWhiteSpace(txtmarkaKodu.Text) ||
+            if (string.IsNullOrWhiteSpace(txtMarkaKodu.Text) ||
         string.IsNullOrWhiteSpace(txtMarkaAdi.Text))
             {
                 MessageBox.Show("Lütfen tüm alanları doldurun.", "Uyarı",
@@ -66,13 +69,18 @@ namespace StokSayim.Moduller.Marka
             try
             {
                 // Form değerlerini modele aktar
-                _brand.BrandCode = txtmarkaKodu.Text;
+                _brand.BrandCode = txtMarkaKodu.Text;
                 _brand.BrandName = txtMarkaAdi.Text;
+                _brand.Aciklama = memAciklama.Text;
 
                 if (_brand.BrandID == 0)
                 {
                     // Yeni marka
-                    _brandRepository.Add(_brand);        
+                    _brandRepository.Add(_brand);
+
+                    MessageBox.Show("Yeni Marka Eklendi.", "Bilgi",
+                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
 
                 }
                 else
@@ -80,6 +88,9 @@ namespace StokSayim.Moduller.Marka
                     // Mevcut marka
                     //_brand.UpdatedDate = DateTime.Now;
                     _brandRepository.Update(_brand);
+                    MessageBox.Show("Marka Bilgisi Düzenlendi.", "Bilgi",
+             MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
                 }
 
        

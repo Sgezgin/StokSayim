@@ -17,6 +17,9 @@ namespace StokSayim.Models
         [MaxLength(100)]
         public string BrandName { get; set; }
 
+        [MaxLength(500)]
+        public string Aciklama { get; set; }
+
         // Navigation properties
         public virtual ICollection<Store> Stores { get; set; }
         public virtual ICollection<CatalogItem> CatalogItems { get; set; }
