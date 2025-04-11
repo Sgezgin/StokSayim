@@ -63,6 +63,9 @@ namespace StokSayim.Moduller.Katalog
                 // Sütun başlıklarını ayarla
                 gridViewKatalog.Columns["ItemID"].Visible = false;
                 gridViewKatalog.Columns["BrandID"].Visible = false;
+                gridViewKatalog.Columns["Brand"].Visible = false;
+                gridViewKatalog.Columns["CustomFields"].Visible = false;
+                gridViewKatalog.Columns["CustomFieldsDictionary"].Visible = false;
 
                 gridViewKatalog.Columns["Barcode"].Caption = "Barkod";
                 gridViewKatalog.Columns["Description"].Caption = "Açıklama";
@@ -71,6 +74,9 @@ namespace StokSayim.Moduller.Katalog
                 // Özel alanları görüntülemek için (JSON verisi)
                 SetupCustomFieldColumns();
 
+                XtraMessageBox.Show(gridViewKatalog.RowCount + " Kayıt Listelendi.", "Bilgi",
+                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
                 // Kayıt sayısını göster
                 //lblKayitSayisi.Text = $"Toplam Kayıt: {gridViewKatalog.RowCount}";
             }
@@ -204,6 +210,7 @@ namespace StokSayim.Moduller.Katalog
             if (caption == "Çıkış") (this.Parent as Form).DialogResult = DialogResult.No;
             else if (caption == "Katalog Yükle") YeniKatalogYukle();
             else if (caption == "Dışa Aktar") DisaAktar();
+            else if (caption == "Listele") LoadCatalogData();
         }
 
         private void DisaAktar()
