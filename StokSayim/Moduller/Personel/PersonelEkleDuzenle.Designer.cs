@@ -35,7 +35,7 @@
             this.windowsUIButtonPanel = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.labelControl = new DevExpress.XtraEditors.LabelControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
+            this.radioPersTip = new DevExpress.XtraEditors.RadioGroup();
             this.txtSoyadi = new DevExpress.XtraEditors.TextEdit();
             this.txtAdi = new DevExpress.XtraEditors.TextEdit();
             this.txtTckn = new DevExpress.XtraEditors.TextEdit();
@@ -53,7 +53,7 @@
             this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioPersTip.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoyadi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAdi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTckn.Properties)).BeginInit();
@@ -134,7 +134,7 @@
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.radioGroup1);
+            this.layoutControl1.Controls.Add(this.radioPersTip);
             this.layoutControl1.Controls.Add(this.txtSoyadi);
             this.layoutControl1.Controls.Add(this.txtAdi);
             this.layoutControl1.Controls.Add(this.txtTckn);
@@ -146,17 +146,17 @@
             this.layoutControl1.TabIndex = 8;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // radioGroup1
+            // radioPersTip
             // 
-            this.radioGroup1.Location = new System.Drawing.Point(12, 195);
-            this.radioGroup1.Name = "radioGroup1";
-            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Operatör"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Bölge Sorumlusu"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Yönetici")});
-            this.radioGroup1.Size = new System.Drawing.Size(359, 35);
-            this.radioGroup1.StyleController = this.layoutControl1;
-            this.radioGroup1.TabIndex = 8;
+            this.radioPersTip.Location = new System.Drawing.Point(12, 195);
+            this.radioPersTip.Name = "radioPersTip";
+            this.radioPersTip.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Operatör"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(3, "Bölge Sorumlusu"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "Yönetici")});
+            this.radioPersTip.Size = new System.Drawing.Size(359, 35);
+            this.radioPersTip.StyleController = this.layoutControl1;
+            this.radioPersTip.TabIndex = 8;
             // 
             // txtSoyadi
             // 
@@ -269,7 +269,7 @@
             // 
             // layoutControlItem5
             // 
-            this.layoutControlItem5.Control = this.radioGroup1;
+            this.layoutControlItem5.Control = this.radioPersTip;
             this.layoutControlItem5.CustomizationFormText = "Personel Türü";
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 167);
             this.layoutControlItem5.Name = "layoutControlItem5";
@@ -314,7 +314,7 @@
             this.Load += new System.EventHandler(this.PersonelEkleDuzenle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioPersTip.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoyadi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAdi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTckn.Properties)).EndInit();
@@ -339,7 +339,7 @@
         private DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel windowsUIButtonPanel;
         private DevExpress.XtraEditors.LabelControl labelControl;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraEditors.RadioGroup radioGroup1;
+        private DevExpress.XtraEditors.RadioGroup radioPersTip;
         private DevExpress.XtraEditors.TextEdit txtSoyadi;
         private DevExpress.XtraEditors.TextEdit txtAdi;
         private DevExpress.XtraEditors.TextEdit txtTckn;

@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraBars.Docking2010.Views;
 using DevExpress.XtraBars.Docking2010.Views.WindowsUI;
 using DevExpress.XtraBars.Docking2010.Customization;
+using StokSayim.Data.Repositories;
 
 namespace StokSayim.Moduller.Personel
 {
@@ -18,9 +19,11 @@ namespace StokSayim.Moduller.Personel
     {
         FlyoutProperties properties = new FlyoutProperties();
 
+        private PersonelRepository _personelRepository;
         public PersonelMain()
         {
             InitializeComponent();
+            _personelRepository = Global.PersonelRepository;
             properties.Style = FlyoutStyle.Popup;
         }
 
@@ -46,7 +49,8 @@ namespace StokSayim.Moduller.Personel
 
         private void barPersonelEkle_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            using (var frm = new Moduller.Personel.PersonelEkleDuzenle())
+            Models.Personel pers = new Models.Personel();
+            using (var frm = new Moduller.Personel.PersonelEkleDuzenle(pers, _personelRepository))
             {
                 FlyoutProperties properties = new FlyoutProperties();
                 properties.Style = FlyoutStyle.Popup;
