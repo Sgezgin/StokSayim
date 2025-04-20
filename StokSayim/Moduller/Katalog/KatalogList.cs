@@ -53,8 +53,65 @@ namespace StokSayim.Moduller.Katalog
                 // Seçilen markaya ait katalog verilerini getir
                 var catalogItems = _catalogRepository.GetAllByBrandDirect(_selectedBrandId);
 
+                // Özel alanları bulmak için bir katalog öğesinden tüm CustomFields anahtarlarını al
+                var customFieldKeys = _catalogRepository.GetUniqueCustomFieldKeys(_selectedBrandId);
+
+                // DataTable oluştur
+                DataTable dataTable = new DataTable();
+
+                // Standart sütunları ekle
+                dataTable.Columns.Add("ItemID", typeof(long));
+                dataTable.Columns.Add("Barcode", typeof(string));
+                dataTable.Columns.Add("Description", typeof(string));
+                dataTable.Columns.Add("Category", typeof(string));
+                dataTable.Columns.Add("BrandID", typeof(int));
+                dataTable.Columns.Add("CustomFields", typeof(string));
+
+                // Özel alanlar için sütunlar ekle
+                foreach (var key in customFieldKeys)
+                {
+                    dataTable.Columns.Add(key, typeof(string));
+                }
+
+                // Verileri DataTable'a ekle
+                foreach (var item in catalogItems)
+                {
+                    DataRow row = dataTable.NewRow();
+
+                    // Standart alanları ekle
+                    row["ItemID"] = item.ItemID;
+                    row["Barcode"] = item.Barcode ?? string.Empty;
+                    row["Description"] = item.Description ?? string.Empty;
+                    row["Category"] = item.Category ?? string.Empty;
+                    row["BrandID"] = item.BrandID;
+                    row["CustomFields"] = item.CustomFields ?? string.Empty;
+
+                    // Özel alanları ekle
+                    if (!string.IsNullOrEmpty(item.CustomFields))
+                    {
+                        try
+                        {
+                            var customFields = JsonHelper.DeserializeCustomFields(item.CustomFields);
+                            foreach (var field in customFields)
+                            {
+                                if (dataTable.Columns.Contains(field.Key))
+                                {
+                                    row[field.Key] = field.Value?.ToString() ?? string.Empty;
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            // JSON ayrıştırma hatası durumunda
+                            Console.WriteLine($"JSON ayrıştırma hatası: {ex.Message}");
+                        }
+                    }
+
+                    dataTable.Rows.Add(row);
+                }
+
                 // Grid'e veriyi bağla
-                gridControlKatalog.DataSource = catalogItems;
+                gridControlKatalog.DataSource = dataTable;
 
                 // Grid görünümünü özelleştir
                 gridViewKatalog.OptionsBehavior.Editable = false;
@@ -63,22 +120,23 @@ namespace StokSayim.Moduller.Katalog
                 // Sütun başlıklarını ayarla
                 gridViewKatalog.Columns["ItemID"].Visible = false;
                 gridViewKatalog.Columns["BrandID"].Visible = false;
-                gridViewKatalog.Columns["Brand"].Visible = false;
                 gridViewKatalog.Columns["CustomFields"].Visible = false;
-                gridViewKatalog.Columns["CustomFieldsDictionary"].Visible = false;
 
                 gridViewKatalog.Columns["Barcode"].Caption = "Barkod";
                 gridViewKatalog.Columns["Description"].Caption = "Açıklama";
                 gridViewKatalog.Columns["Category"].Caption = "Kategori";
 
-                // Özel alanları görüntülemek için (JSON verisi)
-                SetupCustomFieldColumns();
+                // Özel sütunlar için başlıkları ayarla
+                foreach (var key in customFieldKeys)
+                {
+                    if (gridViewKatalog.Columns[key] != null)
+                    {
+                        gridViewKatalog.Columns[key].Caption = key;
+                    }
+                }
 
                 XtraMessageBox.Show(gridViewKatalog.RowCount + " Kayıt Listelendi.", "Bilgi",
                               MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
-                // Kayıt sayısını göster
-                //lblKayitSayisi.Text = $"Toplam Kayıt: {gridViewKatalog.RowCount}";
             }
             catch (Exception ex)
             {
@@ -102,6 +160,10 @@ namespace StokSayim.Moduller.Katalog
                     column.Caption = field;
                     column.VisibleIndex = gridViewKatalog.Columns.Count;
                     column.UnboundType = DevExpress.Data.UnboundColumnType.String;
+
+                    // Enable filtering for this column
+                    column.OptionsFilter.AllowFilter = true;
+                    column.OptionsFilter.AllowAutoFilter = true;
                 }
 
                 // Unbound sütunları doldurmak için event'i bağla
@@ -116,23 +178,29 @@ namespace StokSayim.Moduller.Katalog
 
         private void GridViewKatalog_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
         {
-            if (e.Column.FieldName.StartsWith("CustomField_") && e.IsGetData)
+            if (e.Column.FieldName.StartsWith("CustomField_"))
             {
                 GridView view = sender as GridView;
                 var row = view.GetRow(e.ListSourceRowIndex) as CatalogItem;
+                string fieldName = e.Column.FieldName.Replace("CustomField_", "");
 
-                if (row != null && !string.IsNullOrEmpty(row.CustomFields))
+                if (e.IsGetData) // When retrieving data to display
                 {
-                    string fieldName = e.Column.FieldName.Replace("CustomField_", "");
-
-                    try
+                    if (row != null && !string.IsNullOrEmpty(row.CustomFields))
                     {
-                        e.Value = JsonHelper.ExtractFieldFromJson(row.CustomFields, fieldName);
+                        try
+                        {
+                            e.Value = JsonHelper.ExtractFieldFromJson(row.CustomFields, fieldName);
+                        }
+                        catch
+                        {
+                            e.Value = string.Empty;
+                        }
                     }
-                    catch
-                    {
-                        e.Value = string.Empty;
-                    }
+                }
+                else if (e.IsSetData) // When setting data (during filtering)
+                {
+                    // No implementation needed for setting data since we're using read-only grid
                 }
             }
         }
@@ -227,5 +295,8 @@ namespace StokSayim.Moduller.Katalog
                 }
             }
         }
+
+        
+
     }
 }
