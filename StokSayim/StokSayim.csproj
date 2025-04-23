@@ -42,6 +42,9 @@
     <Reference Include="DevExpress.BonusSkins.v20.2" />
     <Reference Include="DevExpress.Data.Desktop.v20.2" />
     <Reference Include="DevExpress.Data.v20.2" />
+    <Reference Include="DevExpress.Design.v20.2">
+      <HintPath>..\..\..\Program Files (x86)\DevExpress 20.2\Components\Bin\Framework\Design\DevExpress.Design.v20.2.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Printing.v20.2.Core" />
     <Reference Include="DevExpress.Utils.v20.2" />
     <Reference Include="DevExpress.XtraBars.v20.2" />
@@ -133,7 +136,10 @@
     </Compile>
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\CatalogItem.cs" />
+    <Compile Include="Models\IlTanim.cs" />
     <Compile Include="Models\Personel.cs" />
+    <Compile Include="Models\SayimDetay.cs" />
+    <Compile Include="Models\Sayim.cs" />
     <Compile Include="Models\Store.cs" />
     <Compile Include="Moduller\Katalog\KatalogList.cs">
       <SubType>UserControl</SubType>
@@ -164,6 +170,12 @@
     </Compile>
     <Compile Include="Moduller\Marka\MarkaList.Designer.cs">
       <DependentUpon>MarkaList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Moduller\Musteriler\Musleriler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Moduller\Musteriler\Musleriler.Designer.cs">
+      <DependentUpon>Musleriler.cs</DependentUpon>
     </Compile>
     <Compile Include="Moduller\Personel\PersonelEkleDuzenle.cs">
       <SubType>UserControl</SubType>
@@ -205,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Moduller\Marka\MarkaList.resx">
       <DependentUpon>MarkaList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Moduller\Musteriler\Musleriler.resx">
+      <DependentUpon>Musleriler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Moduller\Personel\PersonelEkleDuzenle.resx">
       <DependentUpon>PersonelEkleDuzenle.cs</DependentUpon>
