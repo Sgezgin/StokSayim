@@ -9,9 +9,8 @@ namespace StokSayim.Models
         [Key]
         public int StoreID { get; set; }
 
-        [Required]
         [MaxLength(50)]
-        public string StoreCode { get; set; }
+        public string StoreCode { get; set; } = "";
 
         [Required]
         [MaxLength(100)]

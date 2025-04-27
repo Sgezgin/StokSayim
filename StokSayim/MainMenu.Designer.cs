@@ -37,7 +37,7 @@
             this.accordionControlElement16 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement17 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.acePersonelslemleri = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement19 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aceMusteriler = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement20 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceMarkaTanimlari = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
@@ -85,7 +85,7 @@
             this.accordionControlElement16,
             this.accordionControlElement17,
             this.acePersonelslemleri,
-            this.accordionControlElement19,
+            this.aceMusteriler,
             this.accordionControlElement20,
             this.aceMarkaTanimlari});
             this.accordionControlElement1.Expanded = true;
@@ -115,17 +115,19 @@
             // 
             // acePersonelslemleri
             // 
-            this.acePersonelslemleri.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement18.ImageOptions.SvgImage")));
+            this.acePersonelslemleri.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("acePersonelslemleri.ImageOptions.SvgImage")));
             this.acePersonelslemleri.Name = "acePersonelslemleri";
             this.acePersonelslemleri.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.acePersonelslemleri.Text = "Personel İşlemleri";
             this.acePersonelslemleri.Click += new System.EventHandler(this.acePersonelslemleri_Click);
             // 
-            // accordionControlElement19
+            // aceMusteriler
             // 
-            this.accordionControlElement19.Name = "accordionControlElement19";
-            this.accordionControlElement19.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement19.Text = "Müsteriler";
+            this.aceMusteriler.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aceMusteriler.ImageOptions.SvgImage")));
+            this.aceMusteriler.Name = "aceMusteriler";
+            this.aceMusteriler.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aceMusteriler.Text = "Müsteriler";
+            this.aceMusteriler.Click += new System.EventHandler(this.aceMusteriler_Click);
             // 
             // accordionControlElement20
             // 
@@ -232,7 +234,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement16;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement17;
         private DevExpress.XtraBars.Navigation.AccordionControlElement acePersonelslemleri;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement19;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aceMusteriler;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement20;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceMarkaTanimlari;
     }

@@ -79,5 +79,17 @@ namespace StokSayim
             flContainer.Controls.Clear();
             flContainer.Controls.Add(new Moduller.Marka.MarkaMain() { Dock = DockStyle.Fill });
         }
+
+        private void aceMusteriler_Click(object sender, EventArgs e)
+        {
+            if (_activeControl != null)
+            {
+                flContainer.Controls.Remove(_activeControl);
+                _activeControl.Dispose();
+            }
+
+            flContainer.Controls.Clear();
+            flContainer.Controls.Add(new Moduller.Musteriler.MuslerilerMain() { Dock = DockStyle.Fill });
+        }
     }
 }

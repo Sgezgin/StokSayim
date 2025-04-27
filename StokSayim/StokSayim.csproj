@@ -171,11 +171,23 @@
     <Compile Include="Moduller\Marka\MarkaList.Designer.cs">
       <DependentUpon>MarkaList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Moduller\Musteriler\Musleriler.cs">
+    <Compile Include="Moduller\Musteriler\MuslerilerMain.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Moduller\Musteriler\Musleriler.Designer.cs">
-      <DependentUpon>Musleriler.cs</DependentUpon>
+    <Compile Include="Moduller\Musteriler\MuslerilerMain.Designer.cs">
+      <DependentUpon>MuslerilerMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Moduller\Musteriler\MusteriEkleDuzenle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Moduller\Musteriler\MusteriEkleDuzenle.Designer.cs">
+      <DependentUpon>MusteriEkleDuzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Moduller\Musteriler\MusteriListesi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Moduller\Musteriler\MusteriListesi.Designer.cs">
+      <DependentUpon>MusteriListesi.cs</DependentUpon>
     </Compile>
     <Compile Include="Moduller\Personel\PersonelEkleDuzenle.cs">
       <SubType>UserControl</SubType>
@@ -194,6 +206,12 @@
     </Compile>
     <Compile Include="Moduller\Personel\PersonelMain.Designer.cs">
       <DependentUpon>PersonelMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Moduller\Sayim\SayimBaslat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Moduller\Sayim\SayimBaslat.Designer.cs">
+      <DependentUpon>SayimBaslat.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -218,8 +236,14 @@
     <EmbeddedResource Include="Moduller\Marka\MarkaList.resx">
       <DependentUpon>MarkaList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Moduller\Musteriler\Musleriler.resx">
-      <DependentUpon>Musleriler.cs</DependentUpon>
+    <EmbeddedResource Include="Moduller\Musteriler\MuslerilerMain.resx">
+      <DependentUpon>MuslerilerMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Moduller\Musteriler\MusteriEkleDuzenle.resx">
+      <DependentUpon>MusteriEkleDuzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Moduller\Musteriler\MusteriListesi.resx">
+      <DependentUpon>MusteriListesi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Moduller\Personel\PersonelEkleDuzenle.resx">
       <DependentUpon>PersonelEkleDuzenle.cs</DependentUpon>
@@ -229,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Moduller\Personel\PersonelMain.resx">
       <DependentUpon>PersonelMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Moduller\Sayim\SayimBaslat.resx">
+      <DependentUpon>SayimBaslat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -252,9 +279,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Moduller\Sayim\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>

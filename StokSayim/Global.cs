@@ -73,7 +73,7 @@ namespace StokSayim
             StoreRepository = new StoreRepository(DbContext);
             CatalogRepository = new CatalogRepository(DbContext);
             PersonelRepository = new PersonelRepository(DbContext);
-
+           
 
             // Servisleri oluştur
             CatalogService = new CatalogService(CatalogRepository, ConnectionString);
