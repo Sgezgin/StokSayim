@@ -36,6 +36,7 @@ namespace StokSayim.Data
         public DbSet<SayimDetay> SayimDetay { get; set; }
         public DbSet<Sayim> Sayim { get; set; }
         public DbSet<IlTanim> IlTanim { get; set; }
+        public DbSet<AlanTipTanim> AlanTipTanim { get; set; }
 
 
 

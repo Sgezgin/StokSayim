@@ -38,7 +38,7 @@
             this.accordionControlElement17 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.acePersonelslemleri = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceMusteriler = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement20 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aceTanimlar = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceMarkaTanimlari = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -54,27 +54,32 @@
             // flContainer
             // 
             this.flContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flContainer.Location = new System.Drawing.Point(268, 31);
+            this.flContainer.Location = new System.Drawing.Point(313, 31);
             this.flContainer.Margin = new System.Windows.Forms.Padding(2);
             this.flContainer.Name = "flContainer";
-            this.flContainer.Size = new System.Drawing.Size(622, 612);
+            this.flContainer.Size = new System.Drawing.Size(725, 661);
             this.flContainer.TabIndex = 0;
             // 
             // accordionControl1
             // 
             this.accordionControl1.Appearance.AccordionControl.Font = new System.Drawing.Font("Tahoma", 25F);
             this.accordionControl1.Appearance.AccordionControl.Options.UseFont = true;
+            this.accordionControl1.Appearance.Group.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.accordionControl1.Appearance.Group.Normal.Options.UseFont = true;
+            this.accordionControl1.Appearance.Item.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.accordionControl1.Appearance.Item.Normal.Options.UseFont = true;
+            this.accordionControl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement1});
             this.accordionControl1.Location = new System.Drawing.Point(0, 31);
             this.accordionControl1.Margin = new System.Windows.Forms.Padding(2);
             this.accordionControl1.Name = "accordionControl1";
-            this.accordionControl1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 29);
+            this.accordionControl1.Padding = new System.Windows.Forms.Padding(0, 25, 0, 31);
             this.accordionControl1.RootDisplayMode = DevExpress.XtraBars.Navigation.AccordionControlRootDisplayMode.Footer;
             this.accordionControl1.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
             this.accordionControl1.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
-            this.accordionControl1.Size = new System.Drawing.Size(268, 612);
+            this.accordionControl1.Size = new System.Drawing.Size(313, 661);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -86,7 +91,7 @@
             this.accordionControlElement17,
             this.acePersonelslemleri,
             this.aceMusteriler,
-            this.accordionControlElement20,
+            this.aceTanimlar,
             this.aceMarkaTanimlari});
             this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.Name = "accordionControlElement1";
@@ -129,12 +134,13 @@
             this.aceMusteriler.Text = "Müsteriler";
             this.aceMusteriler.Click += new System.EventHandler(this.aceMusteriler_Click);
             // 
-            // accordionControlElement20
+            // aceTanimlar
             // 
-            this.accordionControlElement20.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement20.ImageOptions.SvgImage")));
-            this.accordionControlElement20.Name = "accordionControlElement20";
-            this.accordionControlElement20.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement20.Text = "Tanımlar";
+            this.aceTanimlar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement20.ImageOptions.SvgImage")));
+            this.aceTanimlar.Name = "aceTanimlar";
+            this.aceTanimlar.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aceTanimlar.Text = "Tanımlar";
+            this.aceTanimlar.Click += new System.EventHandler(this.aceTanimlar_Click);
             // 
             // aceMarkaTanimlari
             // 
@@ -155,7 +161,7 @@
             this.fluentDesignFormControl1.Manager = this.fluentFormDefaultManager1;
             this.fluentDesignFormControl1.Margin = new System.Windows.Forms.Padding(2);
             this.fluentDesignFormControl1.Name = "fluentDesignFormControl1";
-            this.fluentDesignFormControl1.Size = new System.Drawing.Size(890, 31);
+            this.fluentDesignFormControl1.Size = new System.Drawing.Size(1038, 31);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             // 
@@ -198,9 +204,9 @@
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(890, 643);
+            this.ClientSize = new System.Drawing.Size(1038, 692);
             this.ControlContainer = this.flContainer;
             this.Controls.Add(this.flContainer);
             this.Controls.Add(this.accordionControl1);
@@ -235,7 +241,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement17;
         private DevExpress.XtraBars.Navigation.AccordionControlElement acePersonelslemleri;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceMusteriler;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement20;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aceTanimlar;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceMarkaTanimlari;
     }
 }

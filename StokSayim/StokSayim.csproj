@@ -134,6 +134,7 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\AlanTipTanim.cs" />
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\CatalogItem.cs" />
     <Compile Include="Models\IlTanim.cs" />
@@ -213,6 +214,24 @@
     <Compile Include="Moduller\Sayim\SayimBaslat.Designer.cs">
       <DependentUpon>SayimBaslat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Moduller\Tanimlar\AlanTipEkleDuzenle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Moduller\Tanimlar\AlanTipEkleDuzenle.Designer.cs">
+      <DependentUpon>AlanTipEkleDuzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Moduller\Tanimlar\AlanTipTanimList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Moduller\Tanimlar\AlanTipTanimList.Designer.cs">
+      <DependentUpon>AlanTipTanimList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Moduller\Tanimlar\TanimlarMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Moduller\Tanimlar\TanimlarMain.Designer.cs">
+      <DependentUpon>TanimlarMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Login.resx">
@@ -256,6 +275,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Moduller\Sayim\SayimBaslat.resx">
       <DependentUpon>SayimBaslat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Moduller\Tanimlar\AlanTipEkleDuzenle.resx">
+      <DependentUpon>AlanTipEkleDuzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Moduller\Tanimlar\AlanTipTanimList.resx">
+      <DependentUpon>AlanTipTanimList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Moduller\Tanimlar\TanimlarMain.resx">
+      <DependentUpon>TanimlarMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
