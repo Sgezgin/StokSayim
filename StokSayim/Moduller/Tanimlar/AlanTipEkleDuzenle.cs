@@ -28,7 +28,19 @@ namespace StokSayim.Moduller.Tanimlar
 
         private void AlanTipEkleDuzenle_Load(object sender, EventArgs e)
         {
+            if(_alanTipTanim.Id > 0)
+            {
+                txtAlanAdi.Text = _alanTipTanim.Adi;
+                txtAlanKodu.Text = _alanTipTanim.AlanKod;
+                memAciklama.Text = _alanTipTanim.Aciklama;
+                radioAktifPasif.EditValue = _alanTipTanim.Aktif;
+                labelControl.Text = "Alan Bilgisi Düzenle";
 
+            }
+            else
+            {
+                labelControl.Text = "Yeni Alan Bilgisi Ekle";
+            }
         }
 
 

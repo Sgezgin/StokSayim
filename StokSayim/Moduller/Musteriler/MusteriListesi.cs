@@ -175,12 +175,36 @@ namespace StokSayim.Moduller.Musteriler
 
         private void barSayimBaslat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            var selectedRow = gridView1.GetFocusedRow();
+            if (selectedRow != null)
+            {
+                int storeId = Convert.ToInt32(gridView1.GetFocusedRowCellValue("StoreID"));
+                var selectStore = _storeRepository.GetById(storeId);
 
+                if (selectStore != null)
+                {
+                    Models.Sayim newSayim = new Models.Sayim();
+                    using (var frm = new Moduller.Sayim.SayimBaslat(newSayim, selectStore)) //selectStore, _storeRepository
+                    {
+                        FlyoutProperties properties = new FlyoutProperties();
+                        properties.Style = FlyoutStyle.Popup;
+                        var result = FlyoutDialog.Show(MainMenu.ActiveForm, frm, properties);
+                        Listele();
+
+                    }
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Lütfen Sayım Başlatmak için bir müşteri seçin.", "Uyarı",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void barDetay_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+          
         }
 
         private void barDuzenle_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

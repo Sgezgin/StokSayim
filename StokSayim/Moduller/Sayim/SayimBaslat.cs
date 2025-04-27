@@ -15,39 +15,29 @@ namespace StokSayim.Moduller.Sayim
 {
     public partial class SayimBaslat : DevExpress.XtraEditors.XtraUserControl
     {
-        private Models.Personel _personel;
+        private Models.Sayim _sayim;
+        private Models.Store _store;
         private PersonelRepository _personelRepository;
+        private StoreRepository _storeRepository;
+        private BrandRepository _brandRepository;
 
-        public SayimBaslat(Models.Personel pers, PersonelRepository personelRepository)
+        public SayimBaslat(Models.Sayim sayim,Models.Store store) //Models.Personel pers, PersonelRepository personelRepository
         {
             InitializeComponent();
-            _personel = pers;
-            _personelRepository = personelRepository;
+            _sayim = sayim;
+            _store = store;
+            _storeRepository = Global.StoreRepository;
+            _brandRepository = Global.BrandRepository;
         }
 
-    
 
-        private void PersonelEkleDuzenle_Load(object sender, EventArgs e)
+        private void SayimBaslat_Load(object sender, EventArgs e)
         {
-            if (_personel != null)
-            {
-                // Düzenleme modu
-                txtAdi.Text = _personel.Adi;
-                txtSoyadi.Text = _personel.Soyadi;
-                txtTckn.Text = _personel.TcNo;
-                radioPersTip.EditValue = _personel.Tip;
-                labelControl.Text = "Personel Bilgi Düzenle";
-            }
-            else
-            {
-                // Ekleme modu
-                radioPersTip.SelectedIndex = 0;
-                labelControl.Text = "Yeni Personel Ekle";
-                _personel = new Models.Personel();
-            }
+            lueMarka.Properties.DataSource = _brandRepository.GetAll();
+            lueMagaza.Properties.DataSource = _storeRepository.GetAll();
         }
 
-   
+
 
         private void windowsUIButtonPanel_ButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
         {
@@ -59,44 +49,12 @@ namespace StokSayim.Moduller.Sayim
 
         private void Kaydet()
         {
-            try
-            {
-
-                _personel.Adi = txtAdi.Text.Trim();
-                _personel.Soyadi = txtSoyadi.Text.Trim();
-                _personel.Tip = Convert.ToInt32(radioPersTip.EditValue);
-
-                if (!string.IsNullOrEmpty(_personel.TcNo))
-                {
-                    _personel.Duzenleyen = "admin";
-                    _personel.EklemeTarih = DateTime.Now;
-                    _personelRepository.Update(_personel);
-                    MessageBox.Show("Personel Bilgisi Güncellendi.", "Bilgi",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-                else
-                {
-                    _personel.TcNo = txtTckn.Text.Trim();
-                    _personel.Ekleyen = "admin";
-                    _personel.EklemeTarih = DateTime.Now;
-                    _personelRepository.Add(_personel);
-                    MessageBox.Show("Yeni Personel Eklendi.", "Bilgi",
-                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-
-              
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
+         
         }
         private void Sil()
         {
 
         }
+
     }
 }
