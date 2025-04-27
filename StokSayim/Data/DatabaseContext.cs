@@ -33,10 +33,12 @@ namespace StokSayim.Data
         public DbSet<Store> Stores { get; set; }
         public DbSet<CatalogItem> CatalogItems { get; set; }
         public DbSet<Personel> Personel { get; set; }
-        public DbSet<SayimDetay> SayimDetay { get; set; }
-        public DbSet<Sayim> Sayim { get; set; }
         public DbSet<IlTanim> IlTanim { get; set; }
         public DbSet<AlanTipTanim> AlanTipTanim { get; set; }
+        public DbSet<SayimDetay> SayimDetay { get; set; }
+        public DbSet<Sayim> Sayim { get; set; }
+        public DbSet<SayimLokasyon> SayimLokasyon { get; set; }
+        public DbSet<SayimLokasyonDetay> SayimLokasyonDetay { get; set; }
 
 
 

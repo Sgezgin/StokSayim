@@ -52,6 +52,11 @@ namespace StokSayim
 
         public static PersonelRepository PersonelRepository { get; private set; }
 
+        public static SayimRepository SayimRepository { get; private set; }
+        public static SayimDetayRepository SayimDetayRepository { get; private set; }
+        public static SayimLokasyonRepository SayimLokasyonRepository { get; private set; }
+        public static SayimLokasyonDetayRepository SayimLokasyonDetayRepository { get; private set; }
+
 
         /// <summary>
         /// Global servisleri başlatır
@@ -73,7 +78,11 @@ namespace StokSayim
             StoreRepository = new StoreRepository(DbContext);
             CatalogRepository = new CatalogRepository(DbContext);
             PersonelRepository = new PersonelRepository(DbContext);
-           
+            SayimRepository = new SayimRepository(DbContext);
+            SayimDetayRepository = new SayimDetayRepository(DbContext);
+            SayimLokasyonRepository = new SayimLokasyonRepository(DbContext);
+            SayimLokasyonDetayRepository = new SayimLokasyonDetayRepository(DbContext);
+
 
             // Servisleri oluştur
             CatalogService = new CatalogService(CatalogRepository, ConnectionString);

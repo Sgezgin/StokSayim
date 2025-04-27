@@ -112,6 +112,10 @@
     <Compile Include="Data\Repositories\BrandRepository.cs" />
     <Compile Include="Data\Repositories\CatalogRepository.cs" />
     <Compile Include="Data\Repositories\PersonelRepository.cs" />
+    <Compile Include="Data\Repositories\SayimDetayRepository.cs" />
+    <Compile Include="Data\Repositories\SayimLokasyonDetayRepository.cs" />
+    <Compile Include="Data\Repositories\SayimLokasyonRepository.cs" />
+    <Compile Include="Data\Repositories\SayimRepository.cs" />
     <Compile Include="Data\Repositories\StoreRepository.cs" />
     <Compile Include="Data\Services\BulkImportService.cs" />
     <Compile Include="Data\Services\CatalogService.cs" />
@@ -141,6 +145,8 @@
     <Compile Include="Models\Personel.cs" />
     <Compile Include="Models\SayimDetay.cs" />
     <Compile Include="Models\Sayim.cs" />
+    <Compile Include="Models\SayimLokasyon.cs" />
+    <Compile Include="Models\SayimLokasyonDetay.cs" />
     <Compile Include="Models\Store.cs" />
     <Compile Include="Moduller\Katalog\KatalogList.cs">
       <SubType>UserControl</SubType>
