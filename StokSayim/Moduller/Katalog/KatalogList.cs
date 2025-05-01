@@ -27,7 +27,8 @@ namespace StokSayim.Moduller.Katalog
         private int _selectedBrandId;
         private string _selectedBrandName;
 
-   
+        private int _pageSize = 100; // Varsayılan olarak 100 kayıt
+        private int _totalRecords = 0; // Toplam kayıt sayısı
 
         public KatalogList(CatalogRepository catalogRepository, BulkImportService bulkImportService, int brandId, string brandName)
         {
@@ -40,8 +41,9 @@ namespace StokSayim.Moduller.Katalog
             _selectedBrandName = brandName;
         }
 
+   
         private void KatalogList_Load(object sender, EventArgs e)
-        {
+        {         
             labelControl.Text = $"{_selectedBrandName} Kataloğu";       
             LoadCatalogData();
         }
@@ -50,8 +52,17 @@ namespace StokSayim.Moduller.Katalog
         {
             try
             {
-                // Seçilen markaya ait katalog verilerini getir
-                var catalogItems = _catalogRepository.GetAllByBrandDirect(_selectedBrandId);
+                // Önce toplam kayıt sayısını al
+                var allItems = _catalogRepository.GetAllByBrandDirect(_selectedBrandId);
+                _totalRecords = allItems.Count;
+                lblToplamUrun.Text = string.Format("Toplam Kayıt: {0:#,##0}", _totalRecords);
+
+                // Sayfalama mantığına göre kısıtlı sayıda veri al
+                var catalogItems = allItems;
+                if (_pageSize > 0 && _pageSize < _totalRecords)
+                {
+                    catalogItems = allItems.Take(_pageSize).ToList();
+                }
 
                 // Özel alanları bulmak için bir katalog öğesinden tüm CustomFields anahtarlarını al
                 var customFieldKeys = _catalogRepository.GetUniqueCustomFieldKeys(_selectedBrandId);
@@ -135,8 +146,14 @@ namespace StokSayim.Moduller.Katalog
                     }
                 }
 
-                XtraMessageBox.Show(gridViewKatalog.RowCount + " Kayıt Listelendi.", "Bilgi",
-                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Gösterilen kayıt sayısı ve toplam kayıt sayısı bilgisini göster
+                string mesaj = $"{gridViewKatalog.RowCount} Kayıt Listelendi";
+                if (_pageSize > 0 && _totalRecords > _pageSize)
+                {
+                    mesaj += $" (Toplam: {_totalRecords})";
+                }
+
+                XtraMessageBox.Show(mesaj, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -296,7 +313,19 @@ namespace StokSayim.Moduller.Katalog
             }
         }
 
-        
-
+        private void radioGroupKayitSayisi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (radioGroupKayitSayisi.SelectedIndex >= 0)
+            {
+                // Seçilen değeri al
+                var selectedItem = radioGroupKayitSayisi.Properties.Items[radioGroupKayitSayisi.SelectedIndex];
+                if (selectedItem != null)
+                {
+                    _pageSize = Convert.ToInt32(selectedItem.Value);
+                    // Listeyi yeniden yükle
+                    LoadCatalogData();
+                }
+            }
+        }
     }
 }

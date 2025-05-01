@@ -120,7 +120,6 @@ namespace StokSayim.Moduller.Marka
                 MessageBox.Show("Lütfen Katalog için bir marka seçin.", "Uyarı",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
          
         }
 
