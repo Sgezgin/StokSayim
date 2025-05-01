@@ -39,6 +39,7 @@ namespace StokSayim.Data
         public DbSet<Sayim> Sayim { get; set; }
         public DbSet<SayimLokasyon> SayimLokasyon { get; set; }
         public DbSet<SayimLokasyonDetay> SayimLokasyonDetay { get; set; }
+        public DbSet<SayimPersonel> SayimPersonel { get; set; }
 
 
 

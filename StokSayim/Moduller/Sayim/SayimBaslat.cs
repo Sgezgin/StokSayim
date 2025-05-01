@@ -21,11 +21,13 @@ namespace StokSayim.Moduller.Sayim
         private StoreRepository _storeRepository;
         private BrandRepository _brandRepository;
         private BaseRepository<AlanTipTanim> _alanTipTanimRepo;
+        private BaseRepository<SayimPersonel> _sayimPersonelRepository;
         private SayimLokasyonRepository _sayimLokasyonRepository;
         private SayimLokasyonDetayRepository _sayimLokasyonDetayRepository;
         private SayimRepository _sayimRepository;
-     
 
+
+        private List<SayimPersonel> sayimPersonelList = new List<SayimPersonel>();
         private List<Brand> brandList = new List<Brand>();
         private List<Store> storeList = new List<Store>();
         private List<AlanTipTanim> alanTipTanimList = new List<AlanTipTanim>();
@@ -39,6 +41,7 @@ namespace StokSayim.Moduller.Sayim
             _storeRepository = Global.StoreRepository;
             _brandRepository = Global.BrandRepository;
             _alanTipTanimRepo = new BaseRepository<AlanTipTanim>(Global.DbContext);
+            _sayimPersonelRepository = new BaseRepository<SayimPersonel>(Global.DbContext);
             _sayimLokasyonRepository = Global.SayimLokasyonRepository;
             _sayimLokasyonDetayRepository = Global.SayimLokasyonDetayRepository;
             _sayimRepository = Global.SayimRepository;
@@ -50,7 +53,7 @@ namespace StokSayim.Moduller.Sayim
         private void SayimKontrol()
         {
             if(_sayim.Id > 0)
-            {
+            {             
                 lytLokasyonlar.Visible = true;
                 lytAyarlar.Visible = true;
                 lytPersoneller.Visible = true;
@@ -63,6 +66,23 @@ namespace StokSayim.Moduller.Sayim
                 lytPersoneller.Visible = false;
                 //lytLokasyonLabel.Control.Visible = true;
                 lblLokasyonUyarı.Text = "Genel Bilgiler Sekmesinden Kayıt Yapınız.";
+            }
+        }
+
+        private void SayimPersonelListele()
+        {
+            try
+            {
+                if(_sayim.Id > 0)
+                {
+                    sayimPersonelList = _sayimPersonelRepository.Find(x => x.SayimId == _sayim.Id).ToList();
+                    gridControlPers.DataSource = sayimPersonelList;
+                }
+          
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Hata SayimPersonelList : " + ex.Message);
             }
         }
 
@@ -106,6 +126,7 @@ namespace StokSayim.Moduller.Sayim
 
             luePersonelSec.Properties.DataSource = _personelRepository.GetAll();
 
+            SayimPersonelListele();
             SayimKontrol();
 
 
@@ -316,7 +337,69 @@ namespace StokSayim.Moduller.Sayim
 
         private void btnPersonelEkle_Click(object sender, EventArgs e)
         {
+            var selectedTcNo = luePersonelSec.EditValue?.ToString();
 
+            if (!string.IsNullOrEmpty(selectedTcNo))
+            {
+                var selectedPersonel = _personelRepository.FirstOrDefault(p => p.TcNo == selectedTcNo);
+
+                if (selectedPersonel != null)
+                {
+                    int tipDegeri = selectedPersonel.Tip;
+                    string tckn = selectedPersonel.TcNo;
+                    if(sayimPersonelList.FirstOrDefault(x=> x.TcNo == tckn) == null)
+                    {
+                        SayimPersonel yeniPersEkle = new SayimPersonel();
+                        yeniPersEkle.TcNo = tckn;
+                        yeniPersEkle.Tip = tipDegeri;
+                        yeniPersEkle.Soyadi = selectedPersonel.Soyadi;
+                        yeniPersEkle.SayimId = _sayim.Id;
+                        yeniPersEkle.Adi = selectedPersonel.Adi;
+                        _sayimPersonelRepository.Add(yeniPersEkle);
+
+                        SayimPersonelListele();
+                    }
+               
+                }
+            }
+        }
+
+        private void gridViewPers_CustomColumnDisplayText(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventArgs e)
+        {
+            if (e.Column.FieldName == "Tip")
+            {
+                if (e.Value is int tipValue)
+                {
+                    if (tipValue == 1)
+                        e.DisplayText = "Operatör";
+                    else if (tipValue == 2)
+                        e.DisplayText = "Yönetici";
+                    else if (tipValue == 3)
+                        e.DisplayText = "Bölge Sorumlusu";
+                    else
+                        e.DisplayText = "Bilinmiyor"; // Diğer durumlar için
+                }
+            }
+        }
+
+        private void btnGridPersSil_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            // Seçilen satırın indexini al
+            int rowIndex = gridViewPers.FocusedRowHandle;
+
+            // Örneğin satırdan TcNo değerini alalım
+            var id = gridViewPers.GetRowCellValue(rowIndex, "Id")?.ToString();
+
+            if (!string.IsNullOrEmpty(id))
+            {
+                long silinecekPersId = Convert.ToInt64(id);
+                var silinecek = _sayimPersonelRepository.FirstOrDefault(p => p.Id == silinecekPersId);
+                if (silinecek != null)
+                {
+                    _sayimPersonelRepository.Delete(silinecek);
+                    SayimPersonelListele();
+                }
+            }
         }
     }
 }

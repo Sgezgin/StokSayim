@@ -66,6 +66,11 @@ namespace StokSayim.Data.Repositories
             }
         }
 
+        public virtual T FirstOrDefault(Expression<Func<T, bool>> predicate)
+        {
+            return _dbSet.FirstOrDefault(predicate);
+        }
+
         public virtual void Update(T entity)
         {
             _context.Entry(entity).State = EntityState.Modified;

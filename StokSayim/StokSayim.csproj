@@ -147,6 +147,7 @@
     <Compile Include="Models\Sayim.cs" />
     <Compile Include="Models\SayimLokasyon.cs" />
     <Compile Include="Models\SayimLokasyonDetay.cs" />
+    <Compile Include="Models\SayimPersonel.cs" />
     <Compile Include="Models\Store.cs" />
     <Compile Include="Moduller\Dashboard\DashboardMain.cs">
       <SubType>UserControl</SubType>
