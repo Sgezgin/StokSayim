@@ -14,7 +14,7 @@ namespace StokSayim
 {
     public partial class MainMenu : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
-
+        public static int AktifSayimId =0;
         private UserControl _activeControl;
 
 
@@ -103,6 +103,30 @@ namespace StokSayim
 
             flContainer.Controls.Clear();
             flContainer.Controls.Add(new Moduller.Tanimlar.TanimlarMain() { Dock = DockStyle.Fill });
+        }
+
+        private void barSayimislemleri_Click(object sender, EventArgs e)
+        {
+            if (_activeControl != null)
+            {
+                flContainer.Controls.Remove(_activeControl);
+                _activeControl.Dispose();
+            }
+
+            flContainer.Controls.Clear();
+            flContainer.Controls.Add(new Moduller.Sayim.SayimListesi(flContainer) { Dock = DockStyle.Fill });
+        }
+
+        private void aceDashboard_Click(object sender, EventArgs e)
+        {
+            if (_activeControl != null)
+            {
+                flContainer.Controls.Remove(_activeControl);
+                _activeControl.Dispose();
+            }
+
+            flContainer.Controls.Clear();
+            flContainer.Controls.Add(new Moduller.Dashboard.DashboardMain() { Dock = DockStyle.Fill });
         }
     }
 }

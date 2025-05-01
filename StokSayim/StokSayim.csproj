@@ -148,6 +148,12 @@
     <Compile Include="Models\SayimLokasyon.cs" />
     <Compile Include="Models\SayimLokasyonDetay.cs" />
     <Compile Include="Models\Store.cs" />
+    <Compile Include="Moduller\Dashboard\DashboardMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Moduller\Dashboard\DashboardMain.Designer.cs">
+      <DependentUpon>DashboardMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Moduller\Katalog\KatalogList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -220,6 +226,12 @@
     <Compile Include="Moduller\Sayim\SayimBaslat.Designer.cs">
       <DependentUpon>SayimBaslat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Moduller\Sayim\SayimListesi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Moduller\Sayim\SayimListesi.Designer.cs">
+      <DependentUpon>SayimListesi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Moduller\Tanimlar\AlanTipEkleDuzenle.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -245,6 +257,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Moduller\Dashboard\DashboardMain.resx">
+      <DependentUpon>DashboardMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Moduller\Katalog\KatalogList.resx">
       <DependentUpon>KatalogList.cs</DependentUpon>
@@ -281,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Moduller\Sayim\SayimBaslat.resx">
       <DependentUpon>SayimBaslat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Moduller\Sayim\SayimListesi.resx">
+      <DependentUpon>SayimListesi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Moduller\Tanimlar\AlanTipEkleDuzenle.resx">
       <DependentUpon>AlanTipEkleDuzenle.cs</DependentUpon>

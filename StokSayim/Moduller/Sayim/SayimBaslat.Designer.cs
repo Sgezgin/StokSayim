@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SayimBaslat));
             this.windowsUIButtonPanel = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.labelControl = new DevExpress.XtraEditors.LabelControl();
@@ -60,9 +60,14 @@
             this.txtAcikalam = new DevExpress.XtraEditors.TextEdit();
             this.txtAlanKodu = new DevExpress.XtraEditors.TextEdit();
             this.lueAlanTipi = new DevExpress.XtraEditors.LookUpEdit();
-            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.gridSayimLokasyon = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridSayimLokasyonDetay = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -83,6 +88,8 @@
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.lblLokasyonUyarı = new DevExpress.XtraEditors.LabelControl();
+            this.lytLokasyonLabel = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
@@ -115,9 +122,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtAcikalam.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAlanKodu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueAlanTipi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSayimLokasyon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSayimLokasyonDetay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
@@ -138,6 +145,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lytLokasyonLabel)).BeginInit();
             this.SuspendLayout();
             // 
             // windowsUIButtonPanel
@@ -157,13 +165,13 @@
             this.windowsUIButtonPanel.AppearanceButton.Pressed.Options.UseFont = true;
             this.windowsUIButtonPanel.AppearanceButton.Pressed.Options.UseForeColor = true;
             this.windowsUIButtonPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(34)))), ((int)(((byte)(68)))));
-            windowsUIButtonImageOptions1.ImageUri.Uri = "Edit;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions2.ImageUri.Uri = "Preview;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
+            windowsUIButtonImageOptions3.ImageUri.Uri = "Edit;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions4.ImageUri.Uri = "Preview;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions4.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions4.SvgImage")));
             this.windowsUIButtonPanel.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Kaydet", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Kaydet", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Kapat", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Kapat", true, windowsUIButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.windowsUIButtonPanel.EnableImageTransparency = true;
             this.windowsUIButtonPanel.ForeColor = System.Drawing.Color.White;
@@ -197,7 +205,7 @@
             this.labelControl.Padding = new System.Windows.Forms.Padding(0, 4, 19, 9);
             this.labelControl.Size = new System.Drawing.Size(1005, 38);
             this.labelControl.TabIndex = 7;
-            this.labelControl.Text = "Sayım Başlat";
+            this.labelControl.Text = "Sayım Bilgileri";
             // 
             // layoutControl1
             // 
@@ -433,13 +441,14 @@
             // 
             // lytLokasyonlar
             // 
+            this.lytLokasyonlar.Controls.Add(this.lblLokasyonUyarı);
             this.lytLokasyonlar.Controls.Add(this.txtMiktar);
             this.lytLokasyonlar.Controls.Add(this.btnLokasyonEkle);
             this.lytLokasyonlar.Controls.Add(this.txtAcikalam);
             this.lytLokasyonlar.Controls.Add(this.txtAlanKodu);
             this.lytLokasyonlar.Controls.Add(this.lueAlanTipi);
-            this.lytLokasyonlar.Controls.Add(this.gridControl2);
-            this.lytLokasyonlar.Controls.Add(this.gridControl1);
+            this.lytLokasyonlar.Controls.Add(this.gridSayimLokasyon);
+            this.lytLokasyonlar.Controls.Add(this.gridSayimLokasyonDetay);
             this.lytLokasyonlar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lytLokasyonlar.Location = new System.Drawing.Point(0, 0);
             this.lytLokasyonlar.Name = "lytLokasyonlar";
@@ -450,7 +459,7 @@
             // 
             // txtMiktar
             // 
-            this.txtMiktar.Location = new System.Drawing.Point(341, 12);
+            this.txtMiktar.Location = new System.Drawing.Point(341, 40);
             this.txtMiktar.Name = "txtMiktar";
             this.txtMiktar.Properties.AdvancedModeOptions.Label = "Miktar";
             this.txtMiktar.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
@@ -461,7 +470,7 @@
             // btnLokasyonEkle
             // 
             this.btnLokasyonEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLokasyonEkle.ImageOptions.Image")));
-            this.btnLokasyonEkle.Location = new System.Drawing.Point(261, 56);
+            this.btnLokasyonEkle.Location = new System.Drawing.Point(261, 84);
             this.btnLokasyonEkle.Name = "btnLokasyonEkle";
             this.btnLokasyonEkle.Size = new System.Drawing.Size(155, 36);
             this.btnLokasyonEkle.StyleController = this.lytLokasyonlar;
@@ -471,7 +480,7 @@
             // 
             // txtAcikalam
             // 
-            this.txtAcikalam.Location = new System.Drawing.Point(12, 56);
+            this.txtAcikalam.Location = new System.Drawing.Point(12, 84);
             this.txtAcikalam.Name = "txtAcikalam";
             this.txtAcikalam.Properties.AdvancedModeOptions.Label = "Açıklama";
             this.txtAcikalam.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
@@ -481,7 +490,7 @@
             // 
             // txtAlanKodu
             // 
-            this.txtAlanKodu.Location = new System.Drawing.Point(261, 12);
+            this.txtAlanKodu.Location = new System.Drawing.Point(261, 40);
             this.txtAlanKodu.Name = "txtAlanKodu";
             this.txtAlanKodu.Properties.AdvancedModeOptions.Label = "Alan Kodu";
             this.txtAlanKodu.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
@@ -491,7 +500,7 @@
             // 
             // lueAlanTipi
             // 
-            this.lueAlanTipi.Location = new System.Drawing.Point(12, 12);
+            this.lueAlanTipi.Location = new System.Drawing.Point(12, 40);
             this.lueAlanTipi.Name = "lueAlanTipi";
             this.lueAlanTipi.Properties.AdvancedModeOptions.Label = "Alan Tipi";
             this.lueAlanTipi.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -508,36 +517,87 @@
             this.lueAlanTipi.TabIndex = 6;
             this.lueAlanTipi.EditValueChanged += new System.EventHandler(this.lueAlanTipi_EditValueChanged);
             // 
-            // gridControl2
+            // gridSayimLokasyon
             // 
-            this.gridControl2.Location = new System.Drawing.Point(12, 106);
-            this.gridControl2.MainView = this.gridView2;
-            this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(404, 284);
-            this.gridControl2.TabIndex = 5;
-            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridSayimLokasyon.Location = new System.Drawing.Point(12, 134);
+            this.gridSayimLokasyon.MainView = this.gridView2;
+            this.gridSayimLokasyon.Name = "gridSayimLokasyon";
+            this.gridSayimLokasyon.Size = new System.Drawing.Size(404, 256);
+            this.gridSayimLokasyon.TabIndex = 5;
+            this.gridSayimLokasyon.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
             // gridView2
             // 
-            this.gridView2.GridControl = this.gridControl2;
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumn3,
+            this.gridColumn4,
+            this.gridColumn5});
+            this.gridView2.GridControl = this.gridSayimLokasyon;
             this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsBehavior.Editable = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gridView2.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridView2_RowClick);
             // 
-            // gridControl1
+            // gridColumn1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(420, 12);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(547, 378);
-            this.gridControl1.TabIndex = 4;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridColumn1.Caption = "Id";
+            this.gridColumn1.FieldName = "Id";
+            this.gridColumn1.Name = "gridColumn1";
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Alan Adı";
+            this.gridColumn2.FieldName = "Adi";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 617;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Alan Kodu";
+            this.gridColumn3.FieldName = "AlanKod";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 0;
+            this.gridColumn3.Width = 111;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Açıklama";
+            this.gridColumn4.FieldName = "Aciklama";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 2;
+            this.gridColumn4.Width = 762;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Miktar";
+            this.gridColumn5.FieldName = "Miktar";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 3;
+            this.gridColumn5.Width = 117;
+            // 
+            // gridSayimLokasyonDetay
+            // 
+            this.gridSayimLokasyonDetay.Location = new System.Drawing.Point(420, 40);
+            this.gridSayimLokasyonDetay.MainView = this.gridView1;
+            this.gridSayimLokasyonDetay.Name = "gridSayimLokasyonDetay";
+            this.gridSayimLokasyonDetay.Size = new System.Drawing.Size(547, 350);
+            this.gridSayimLokasyonDetay.TabIndex = 4;
+            this.gridSayimLokasyonDetay.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
-            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GridControl = this.gridSayimLokasyonDetay;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // layoutControlGroup2
@@ -554,33 +614,34 @@
             this.layoutControlItem12,
             this.emptySpaceItem1,
             this.emptySpaceItem9,
-            this.emptySpaceItem10});
+            this.emptySpaceItem10,
+            this.lytLokasyonLabel});
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(979, 402);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.Control = this.gridControl1;
-            this.layoutControlItem3.Location = new System.Drawing.Point(408, 0);
+            this.layoutControlItem3.Control = this.gridSayimLokasyonDetay;
+            this.layoutControlItem3.Location = new System.Drawing.Point(408, 28);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(551, 382);
+            this.layoutControlItem3.Size = new System.Drawing.Size(551, 354);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem6
             // 
-            this.layoutControlItem6.Control = this.gridControl2;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 94);
+            this.layoutControlItem6.Control = this.gridSayimLokasyon;
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 122);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(408, 288);
+            this.layoutControlItem6.Size = new System.Drawing.Size(408, 260);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.lueAlanTipi;
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 28);
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Size = new System.Drawing.Size(249, 24);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
@@ -589,7 +650,7 @@
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.txtAlanKodu;
-            this.layoutControlItem9.Location = new System.Drawing.Point(249, 0);
+            this.layoutControlItem9.Location = new System.Drawing.Point(249, 28);
             this.layoutControlItem9.Name = "layoutControlItem9";
             this.layoutControlItem9.Size = new System.Drawing.Size(80, 24);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
@@ -598,7 +659,7 @@
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.txtAcikalam;
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 44);
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.Size = new System.Drawing.Size(249, 40);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
@@ -607,7 +668,7 @@
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.btnLokasyonEkle;
-            this.layoutControlItem11.Location = new System.Drawing.Point(249, 44);
+            this.layoutControlItem11.Location = new System.Drawing.Point(249, 72);
             this.layoutControlItem11.Name = "layoutControlItem11";
             this.layoutControlItem11.Size = new System.Drawing.Size(159, 40);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
@@ -616,7 +677,7 @@
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.txtMiktar;
-            this.layoutControlItem12.Location = new System.Drawing.Point(329, 0);
+            this.layoutControlItem12.Location = new System.Drawing.Point(329, 28);
             this.layoutControlItem12.Name = "layoutControlItem12";
             this.layoutControlItem12.Size = new System.Drawing.Size(79, 24);
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
@@ -625,7 +686,7 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 24);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 52);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(408, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -633,7 +694,7 @@
             // emptySpaceItem9
             // 
             this.emptySpaceItem9.AllowHotTrack = false;
-            this.emptySpaceItem9.Location = new System.Drawing.Point(0, 34);
+            this.emptySpaceItem9.Location = new System.Drawing.Point(0, 62);
             this.emptySpaceItem9.MaxSize = new System.Drawing.Size(408, 10);
             this.emptySpaceItem9.MinSize = new System.Drawing.Size(408, 10);
             this.emptySpaceItem9.Name = "emptySpaceItem9";
@@ -644,7 +705,7 @@
             // emptySpaceItem10
             // 
             this.emptySpaceItem10.AllowHotTrack = false;
-            this.emptySpaceItem10.Location = new System.Drawing.Point(0, 84);
+            this.emptySpaceItem10.Location = new System.Drawing.Point(0, 112);
             this.emptySpaceItem10.MaxSize = new System.Drawing.Size(408, 10);
             this.emptySpaceItem10.MinSize = new System.Drawing.Size(408, 10);
             this.emptySpaceItem10.Name = "emptySpaceItem10";
@@ -723,6 +784,28 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // lblLokasyonUyarı
+            // 
+            this.lblLokasyonUyarı.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
+            this.lblLokasyonUyarı.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(61)))), ((int)(((byte)(51)))));
+            this.lblLokasyonUyarı.Appearance.Options.UseFont = true;
+            this.lblLokasyonUyarı.Appearance.Options.UseForeColor = true;
+            this.lblLokasyonUyarı.Location = new System.Drawing.Point(12, 12);
+            this.lblLokasyonUyarı.Name = "lblLokasyonUyarı";
+            this.lblLokasyonUyarı.Size = new System.Drawing.Size(18, 24);
+            this.lblLokasyonUyarı.StyleController = this.lytLokasyonlar;
+            this.lblLokasyonUyarı.TabIndex = 11;
+            this.lblLokasyonUyarı.Text = "...";
+            // 
+            // lytLokasyonLabel
+            // 
+            this.lytLokasyonLabel.Control = this.lblLokasyonUyarı;
+            this.lytLokasyonLabel.Location = new System.Drawing.Point(0, 0);
+            this.lytLokasyonLabel.Name = "lytLokasyonLabel";
+            this.lytLokasyonLabel.Size = new System.Drawing.Size(959, 28);
+            this.lytLokasyonLabel.TextSize = new System.Drawing.Size(0, 0);
+            this.lytLokasyonLabel.TextVisible = false;
+            // 
             // SayimBaslat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -765,9 +848,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtAcikalam.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAlanKodu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueAlanTipi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSayimLokasyon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSayimLokasyonDetay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
@@ -788,6 +871,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lytLokasyonLabel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -827,9 +911,9 @@
         private DevExpress.XtraEditors.TextEdit txtAcikalam;
         private DevExpress.XtraEditors.TextEdit txtAlanKodu;
         private DevExpress.XtraEditors.LookUpEdit lueAlanTipi;
-        private DevExpress.XtraGrid.GridControl gridControl2;
+        private DevExpress.XtraGrid.GridControl gridSayimLokasyon;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl gridSayimLokasyonDetay;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
@@ -846,5 +930,12 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem9;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraEditors.LabelControl lblLokasyonUyarı;
+        private DevExpress.XtraLayout.LayoutControlItem lytLokasyonLabel;
     }
 }

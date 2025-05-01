@@ -33,19 +33,29 @@
             this.flContainer = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement14 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement16 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.aceDashboard = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.barSayimislemleri = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement17 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.acePersonelslemleri = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceMusteriler = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceTanimlar = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.aceMarkaTanimlari = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlSeparator1 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.accordionControlSeparator2 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
+            this.accordionControlSeparator3 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.accordionControlSeparator4 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.accordionControlSeparator5 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.accordionControlSeparator6 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.accordionControlSeparator7 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.accordionControlSeparator8 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.accordionControlSeparator9 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -53,6 +63,8 @@
             // 
             // flContainer
             // 
+            this.flContainer.Appearance.BackColor = System.Drawing.Color.White;
+            this.flContainer.Appearance.Options.UseBackColor = true;
             this.flContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flContainer.Location = new System.Drawing.Point(313, 31);
             this.flContainer.Margin = new System.Windows.Forms.Padding(2);
@@ -62,16 +74,39 @@
             // 
             // accordionControl1
             // 
+            this.accordionControl1.Appearance.AccordionControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(34)))), ((int)(((byte)(68)))));
             this.accordionControl1.Appearance.AccordionControl.Font = new System.Drawing.Font("Tahoma", 25F);
+            this.accordionControl1.Appearance.AccordionControl.Options.UseBackColor = true;
             this.accordionControl1.Appearance.AccordionControl.Options.UseFont = true;
+            this.accordionControl1.Appearance.Group.Default.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(34)))), ((int)(((byte)(68)))));
+            this.accordionControl1.Appearance.Group.Default.Options.UseBackColor = true;
+            this.accordionControl1.Appearance.Group.Hovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(61)))), ((int)(((byte)(51)))));
+            this.accordionControl1.Appearance.Group.Hovered.Options.UseBackColor = true;
+            this.accordionControl1.Appearance.Group.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(34)))), ((int)(((byte)(68)))));
             this.accordionControl1.Appearance.Group.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.accordionControl1.Appearance.Group.Normal.Options.UseBackColor = true;
             this.accordionControl1.Appearance.Group.Normal.Options.UseFont = true;
+            this.accordionControl1.Appearance.Group.Pressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(34)))), ((int)(((byte)(68)))));
+            this.accordionControl1.Appearance.Group.Pressed.Options.UseBackColor = true;
+            this.accordionControl1.Appearance.Hint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(34)))), ((int)(((byte)(68)))));
+            this.accordionControl1.Appearance.Hint.Options.UseBackColor = true;
+            this.accordionControl1.Appearance.Item.Default.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(34)))), ((int)(((byte)(68)))));
+            this.accordionControl1.Appearance.Item.Default.Options.UseBackColor = true;
             this.accordionControl1.Appearance.Item.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.accordionControl1.Appearance.Item.Normal.Options.UseFont = true;
+            this.accordionControl1.Appearance.Item.Pressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(61)))), ((int)(((byte)(51)))));
+            this.accordionControl1.Appearance.Item.Pressed.Options.UseBackColor = true;
+            this.accordionControl1.Appearance.ItemWithContainer.Default.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(34)))), ((int)(((byte)(68)))));
+            this.accordionControl1.Appearance.ItemWithContainer.Default.Options.UseBackColor = true;
+            this.accordionControl1.Appearance.ItemWithContainer.Normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(34)))), ((int)(((byte)(68)))));
+            this.accordionControl1.Appearance.ItemWithContainer.Normal.Options.UseBackColor = true;
+            this.accordionControl1.Appearance.ItemWithContainer.Pressed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(34)))), ((int)(((byte)(68)))));
+            this.accordionControl1.Appearance.ItemWithContainer.Pressed.Options.UseBackColor = true;
             this.accordionControl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.accordionControl1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement1});
+            this.accordionControlElement1,
+            this.accordionControlElement2});
             this.accordionControl1.Location = new System.Drawing.Point(0, 31);
             this.accordionControl1.Margin = new System.Windows.Forms.Padding(2);
             this.accordionControl1.Name = "accordionControl1";
@@ -85,31 +120,42 @@
             // 
             // accordionControlElement1
             // 
+            this.accordionControlElement1.Appearance.Default.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.accordionControlElement1.Appearance.Default.Options.UseBackColor = true;
             this.accordionControlElement1.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.accordionControlElement14,
-            this.accordionControlElement16,
+            this.aceDashboard,
+            this.accordionControlSeparator3,
+            this.barSayimislemleri,
+            this.accordionControlSeparator4,
             this.accordionControlElement17,
+            this.accordionControlSeparator7,
             this.acePersonelslemleri,
+            this.accordionControlSeparator6,
             this.aceMusteriler,
+            this.accordionControlSeparator5,
             this.aceTanimlar,
-            this.aceMarkaTanimlari});
+            this.accordionControlSeparator8,
+            this.aceMarkaTanimlari,
+            this.accordionControlSeparator9});
             this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.Name = "accordionControlElement1";
             this.accordionControlElement1.Text = "Element1";
             // 
-            // accordionControlElement14
+            // aceDashboard
             // 
-            this.accordionControlElement14.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement14.ImageOptions.SvgImage")));
-            this.accordionControlElement14.Name = "accordionControlElement14";
-            this.accordionControlElement14.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement14.Text = "Anasayfa";
+            this.aceDashboard.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aceDashboard.ImageOptions.SvgImage")));
+            this.aceDashboard.Name = "aceDashboard";
+            this.aceDashboard.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.aceDashboard.Text = "Dashboard";
+            this.aceDashboard.Click += new System.EventHandler(this.aceDashboard_Click);
             // 
-            // accordionControlElement16
+            // barSayimislemleri
             // 
-            this.accordionControlElement16.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement16.ImageOptions.SvgImage")));
-            this.accordionControlElement16.Name = "accordionControlElement16";
-            this.accordionControlElement16.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement16.Text = "Sayım İşlemleri";
+            this.barSayimislemleri.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSayimislemleri.ImageOptions.SvgImage")));
+            this.barSayimislemleri.Name = "barSayimislemleri";
+            this.barSayimislemleri.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.barSayimislemleri.Text = "Sayım İşlemleri";
+            this.barSayimislemleri.Click += new System.EventHandler(this.barSayimislemleri_Click);
             // 
             // accordionControlElement17
             // 
@@ -136,7 +182,7 @@
             // 
             // aceTanimlar
             // 
-            this.aceTanimlar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement20.ImageOptions.SvgImage")));
+            this.aceTanimlar.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aceTanimlar.ImageOptions.SvgImage")));
             this.aceTanimlar.Name = "aceTanimlar";
             this.aceTanimlar.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.aceTanimlar.Text = "Tanımlar";
@@ -144,10 +190,30 @@
             // 
             // aceMarkaTanimlari
             // 
+            this.aceMarkaTanimlari.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("aceMarkaTanimlari.ImageOptions.SvgImage")));
             this.aceMarkaTanimlari.Name = "aceMarkaTanimlari";
             this.aceMarkaTanimlari.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.aceMarkaTanimlari.Text = "Marka Tanımları";
             this.aceMarkaTanimlari.Click += new System.EventHandler(this.aceMarkaTanimlari_Click);
+            // 
+            // accordionControlElement2
+            // 
+            this.accordionControlElement2.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.accordionControlSeparator1,
+            this.accordionControlSeparator2});
+            this.accordionControlElement2.Name = "accordionControlElement2";
+            this.accordionControlElement2.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement2.Text = "Element2";
+            // 
+            // accordionControlSeparator1
+            // 
+            this.accordionControlSeparator1.Name = "accordionControlSeparator1";
+            this.accordionControlSeparator1.Visible = false;
+            // 
+            // accordionControlSeparator2
+            // 
+            this.accordionControlSeparator2.Name = "accordionControlSeparator2";
+            this.accordionControlSeparator2.Visible = false;
             // 
             // fluentDesignFormControl1
             // 
@@ -202,8 +268,39 @@
             this.barButtonItem4});
             this.fluentFormDefaultManager1.MaxItemId = 4;
             // 
+            // accordionControlSeparator3
+            // 
+            this.accordionControlSeparator3.Name = "accordionControlSeparator3";
+            // 
+            // accordionControlSeparator4
+            // 
+            this.accordionControlSeparator4.Name = "accordionControlSeparator4";
+            // 
+            // accordionControlSeparator5
+            // 
+            this.accordionControlSeparator5.Name = "accordionControlSeparator5";
+            // 
+            // accordionControlSeparator6
+            // 
+            this.accordionControlSeparator6.Name = "accordionControlSeparator6";
+            // 
+            // accordionControlSeparator7
+            // 
+            this.accordionControlSeparator7.Name = "accordionControlSeparator7";
+            // 
+            // accordionControlSeparator8
+            // 
+            this.accordionControlSeparator8.Name = "accordionControlSeparator8";
+            // 
+            // accordionControlSeparator9
+            // 
+            this.accordionControlSeparator9.Name = "accordionControlSeparator9";
+            // 
             // MainMenu
             // 
+            this.Appearance.BackColor = System.Drawing.Color.White;
+            this.Appearance.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1038, 692);
@@ -236,13 +333,23 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement14;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement16;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement aceDashboard;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement barSayimislemleri;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement17;
         private DevExpress.XtraBars.Navigation.AccordionControlElement acePersonelslemleri;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceMusteriler;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceTanimlar;
         private DevExpress.XtraBars.Navigation.AccordionControlElement aceMarkaTanimlari;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement2;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator1;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator2;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator3;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator4;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator7;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator6;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator5;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator8;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator9;
     }
 }
 

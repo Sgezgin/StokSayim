@@ -51,6 +51,21 @@ namespace StokSayim.Data.Repositories
             };
         }
 
+        public virtual void AddRange(IEnumerable<T> entities)
+        {
+            try
+            {
+                _dbSet.AddRange(entities);
+                var result = _context.SaveChanges();
+                Console.WriteLine($"Entities added. SaveChanges returned: {result}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in AddRange method: {ex.Message}");
+                throw; // Hatayı yukarı fırlat
+            }
+        }
+
         public virtual void Update(T entity)
         {
             _context.Entry(entity).State = EntityState.Modified;

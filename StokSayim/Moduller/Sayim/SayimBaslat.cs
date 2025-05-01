@@ -21,6 +21,9 @@ namespace StokSayim.Moduller.Sayim
         private StoreRepository _storeRepository;
         private BrandRepository _brandRepository;
         private BaseRepository<AlanTipTanim> _alanTipTanimRepo;
+        private SayimLokasyonRepository _sayimLokasyonRepository;
+        private SayimLokasyonDetayRepository _sayimLokasyonDetayRepository;
+        private SayimRepository _sayimRepository;
 
         private List<Brand> brandList = new List<Brand>();
         private List<Store> storeList = new List<Store>();
@@ -35,12 +38,36 @@ namespace StokSayim.Moduller.Sayim
             _storeRepository = Global.StoreRepository;
             _brandRepository = Global.BrandRepository;
             _alanTipTanimRepo = new BaseRepository<AlanTipTanim>(Global.DbContext);
+            _sayimLokasyonRepository = Global.SayimLokasyonRepository;
+            _sayimLokasyonDetayRepository = Global.SayimLokasyonDetayRepository;
+            _sayimRepository = Global.SayimRepository;
 
+        }
+
+        private void SayimKontrol()
+        {
+            if(_sayim.Id > 0)
+            {
+                lytLokasyonlar.Visible = true;
+                lytAyarlar.Visible = true;
+                lytPersoneller.Visible = true;
+                lytLokasyonLabel.Control.Visible = false;
+            }
+            else
+            {
+                lytLokasyonlar.Visible = false;
+                lytAyarlar.Visible = false;
+                lytPersoneller.Visible = false;
+                //lytLokasyonLabel.Control.Visible = true;
+                lblLokasyonUyarı.Text = "Genel Bilgiler Sekmesinden Kayıt Yapınız.";
+            }
         }
 
 
         private void SayimBaslat_Load(object sender, EventArgs e)
         {
+   
+
             alanTipTanimList = _alanTipTanimRepo.GetAll().ToList();
             lueAlanTipi.Properties.DataSource = alanTipTanimList;
 
@@ -58,7 +85,26 @@ namespace StokSayim.Moduller.Sayim
                 lueMagaza.Properties.ReadOnly = true;
             }
 
-         
+            if(_sayim.Id > 0)
+            {
+                lueMagaza.EditValue = _sayim.StoreID;
+                lueMarka.EditValue = _sayim.BrandID;
+
+                lueMarka.Properties.ReadOnly = true;
+                lueMagaza.Properties.ReadOnly = true;
+
+                dtBastarih.EditValue = _sayim.BaslangicTarihi;
+                dtBittarih.EditValue = _sayim.BitisTarihi;
+
+                gridSayimLokasyon.DataSource = _sayimLokasyonRepository.GetAll();
+
+                windowsUIButtonPanel.Buttons["Kaydet"].Properties.Caption = "Güncelle";
+            }
+
+            SayimKontrol();
+
+
+
         }
 
 
@@ -72,7 +118,56 @@ namespace StokSayim.Moduller.Sayim
 
         private void Kaydet()
         {
-         
+            if (KontrolleriDogrula())
+            {
+                try
+                {
+                    if (_sayim.Id == 0)
+                    {
+                        Models.Sayim yeniSayim = new Models.Sayim();
+                        yeniSayim.OlusturmaTarihi = DateTime.Now;
+                        yeniSayim.SayimDurumu = 0;
+                        yeniSayim.SayimKodu = "STK-" + DateTime.Now.ToString("yyyyMMdd-HHmmss");
+                        yeniSayim.StoreID = Convert.ToInt32(lueMagaza.EditValue);
+                        yeniSayim.BrandID = Convert.ToInt32(lueMarka.EditValue);
+                        yeniSayim.BaslangicTarihi = Convert.ToDateTime(dtBastarih.EditValue);
+                        yeniSayim.BitisTarihi = Convert.ToDateTime(dtBittarih.EditValue);
+                        yeniSayim.Aciklama = "";
+
+                        _sayimRepository.Add(yeniSayim);
+                        _sayim = yeniSayim;
+                        MessageBox.Show("Yeni Sayım Oluşturuldu.", "Bilgi",
+              MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                        windowsUIButtonPanel.Buttons["Kaydet"].Properties.Caption = "Güncelle";
+                       
+                    }
+                    else
+                    {
+
+                    }
+                }
+                catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+                {
+                    // Validation hatalarını detaylı göster
+                    foreach (var validationErrors in ex.EntityValidationErrors)
+                    {
+                        foreach (var validationError in validationErrors.ValidationErrors)
+                        {
+                            string message = string.Format("Property: {0} Error: {1}",
+                                            validationError.PropertyName,
+                                            validationError.ErrorMessage);
+                            MessageBox.Show(message);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hata: " + ex.Message);
+                }
+               
+            }
         }
         private void Sil()
         {
@@ -83,10 +178,59 @@ namespace StokSayim.Moduller.Sayim
         {
             try
             {
+                if(_sayim.Id == 0)
+                    XtraMessageBox.Show("Sayım Bilgisini Kaydedin", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 if (string.IsNullOrEmpty(txtMiktar.EditValue.ToString()))
                     XtraMessageBox.Show("Miktar Giriniz", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                 {
+                    int miktar = Convert.ToInt32(txtMiktar.EditValue);
+                    string alanKodu = txtAlanKodu.Text;
+
+                    SayimLokasyon sayimLokasyon = new SayimLokasyon();
+                    sayimLokasyon.Aciklama = txtAcikalam.Text;
+                    sayimLokasyon.Adi = lueAlanTipi.Text;
+                    sayimLokasyon.Aktif = 1;
+                    sayimLokasyon.AlanKod = alanKodu;
+                    sayimLokasyon.Miktar = miktar;
+                    sayimLokasyon.SayimId =_sayim.Id;
+                    _sayimLokasyonRepository.Add(sayimLokasyon);
+
+                    List<SayimLokasyonDetay> lokasyonDetayList = new List<SayimLokasyonDetay>(); 
+
+                    for (int i = 1; i <= miktar; i++)
+                    {
+                        // Alan kodu uzunluğu hesaplanır
+                        int alanKodUzunluk = alanKodu.Length;
+
+                        // Kalan kısım için sıfır sayısını hesapla (toplam 6 karakter olacak şekilde)
+                        int sifirSayisi = 6 - alanKodUzunluk - i.ToString().Length;
+
+                        // Sıfırları oluştur
+                        string sifirlar = new string('0', sifirSayisi > 0 ? sifirSayisi : 0);
+
+                        // LokasyonKod oluştur
+                        string lokasyonKod = $"{alanKodu}{sifirlar}{i}";
+
+                        lokasyonDetayList.Add(new SayimLokasyonDetay
+                        {
+                            SayimId = sayimLokasyon.SayimId,
+                            AlanKod = alanKodu,
+                            LokasyonKod = lokasyonKod,
+                            SayimLokasyonId = sayimLokasyon.Id,
+                           IptalAciklama="",
+                           Aktif =1
+                        });
+                    }
+
+                    _sayimLokasyonDetayRepository.AddRange(lokasyonDetayList);
+
+                    XtraMessageBox.Show("Lokasyonlar Eklendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    gridSayimLokasyon.DataSource = _sayimLokasyonRepository.GetAll();
+                    Application.DoEvents();
+
+
 
                 }
             }
@@ -112,6 +256,56 @@ namespace StokSayim.Moduller.Sayim
                     txtAlanKodu.Text = alankodu;
                     txtAcikalam.Text = aciklama;
                 }
+            }
+        }
+
+
+
+
+        private bool KontrolleriDogrula()
+        {
+            // LookUpEdit kontrolleri
+            if (lueMarka.EditValue == null || string.IsNullOrEmpty(lueMarka.EditValue.ToString()))
+            {
+                MessageBox.Show("Lütfen marka seçiniz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (lueMagaza.EditValue == null || string.IsNullOrEmpty(lueMagaza.EditValue.ToString()))
+            {
+                MessageBox.Show("Lütfen mağaza seçiniz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // DateEdit kontrolleri
+            if (dtBastarih.EditValue == null)
+            {
+                MessageBox.Show("Lütfen başlangıç tarihini giriniz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (dtBittarih.EditValue == null)
+            {
+                MessageBox.Show("Lütfen bitiş tarihini giriniz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
+        private void gridView2_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            //SayimLokasyondan Sayımlokasyondetay lsiteleme
+
+            var selectedRow = gridView2.GetFocusedRow();
+            if (selectedRow != null)
+            {
+                int lokasyonId = Convert.ToInt32(gridView2.GetFocusedRowCellValue("Id"));
+
+                List<SayimLokasyonDetay> lokasyonDetay = _sayimLokasyonDetayRepository.Find(x => x.SayimLokasyonId == lokasyonId).ToList();
+
+                gridSayimLokasyonDetay.DataSource = lokasyonDetay;
+
             }
         }
     }

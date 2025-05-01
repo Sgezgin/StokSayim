@@ -20,7 +20,7 @@ namespace StokSayim.Models
         public int Aktif { get; set; }
 
         [MaxLength(250)]
-        public int IptalAciklama { get; set; }
+        public string IptalAciklama { get; set; }
 
         [ForeignKey("SayimLokasyonId")]
         public virtual SayimLokasyon SayimLokasyon { get; set; }
