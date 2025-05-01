@@ -24,6 +24,7 @@ namespace StokSayim.Moduller.Sayim
         private SayimLokasyonRepository _sayimLokasyonRepository;
         private SayimLokasyonDetayRepository _sayimLokasyonDetayRepository;
         private SayimRepository _sayimRepository;
+     
 
         private List<Brand> brandList = new List<Brand>();
         private List<Store> storeList = new List<Store>();
@@ -41,6 +42,8 @@ namespace StokSayim.Moduller.Sayim
             _sayimLokasyonRepository = Global.SayimLokasyonRepository;
             _sayimLokasyonDetayRepository = Global.SayimLokasyonDetayRepository;
             _sayimRepository = Global.SayimRepository;
+            _personelRepository = Global.PersonelRepository;
+          
 
         }
 
@@ -100,6 +103,8 @@ namespace StokSayim.Moduller.Sayim
 
                 windowsUIButtonPanel.Buttons["Kaydet"].Properties.Caption = "Güncelle";
             }
+
+            luePersonelSec.Properties.DataSource = _personelRepository.GetAll();
 
             SayimKontrol();
 
@@ -307,6 +312,11 @@ namespace StokSayim.Moduller.Sayim
                 gridSayimLokasyonDetay.DataSource = lokasyonDetay;
 
             }
+        }
+
+        private void btnPersonelEkle_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

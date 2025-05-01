@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions3 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
-            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions4 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions1 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
+            DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions windowsUIButtonImageOptions2 = new DevExpress.XtraBars.Docking2010.WindowsUIButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SayimBaslat));
             this.windowsUIButtonPanel = new DevExpress.XtraBars.Docking2010.WindowsUIButtonPanel();
             this.labelControl = new DevExpress.XtraEditors.LabelControl();
@@ -55,6 +55,7 @@
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.lytLokasyonlar = new DevExpress.XtraLayout.LayoutControl();
+            this.lblLokasyonUyarı = new DevExpress.XtraEditors.LabelControl();
             this.txtMiktar = new DevExpress.XtraEditors.TextEdit();
             this.btnLokasyonEkle = new DevExpress.XtraEditors.SimpleButton();
             this.txtAcikalam = new DevExpress.XtraEditors.TextEdit();
@@ -80,16 +81,24 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem9 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem10 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.lytLokasyonLabel = new DevExpress.XtraLayout.LayoutControlItem();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
             this.lytPersoneller = new DevExpress.XtraLayout.LayoutControl();
+            this.btnPersonelEkle = new DevExpress.XtraEditors.SimpleButton();
+            this.luePersonelSec = new DevExpress.XtraEditors.LookUpEdit();
+            this.gridControlPers = new DevExpress.XtraGrid.GridControl();
+            this.gridViewPers = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem11 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem13 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
             this.lytAyarlar = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lblLokasyonUyarı = new DevExpress.XtraEditors.LabelControl();
-            this.lytLokasyonLabel = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
@@ -137,15 +146,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lytLokasyonLabel)).BeginInit();
             this.xtraTabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lytPersoneller)).BeginInit();
+            this.lytPersoneller.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.luePersonelSec.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlPers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewPers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             this.xtraTabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lytAyarlar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lytLokasyonLabel)).BeginInit();
             this.SuspendLayout();
             // 
             // windowsUIButtonPanel
@@ -165,13 +183,13 @@
             this.windowsUIButtonPanel.AppearanceButton.Pressed.Options.UseFont = true;
             this.windowsUIButtonPanel.AppearanceButton.Pressed.Options.UseForeColor = true;
             this.windowsUIButtonPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(34)))), ((int)(((byte)(68)))));
-            windowsUIButtonImageOptions3.ImageUri.Uri = "Edit;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions4.ImageUri.Uri = "Preview;Size32x32;GrayScaled";
-            windowsUIButtonImageOptions4.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions4.SvgImage")));
+            windowsUIButtonImageOptions1.ImageUri.Uri = "Edit;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions2.ImageUri.Uri = "Preview;Size32x32;GrayScaled";
+            windowsUIButtonImageOptions2.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("windowsUIButtonImageOptions2.SvgImage")));
             this.windowsUIButtonPanel.Buttons.AddRange(new DevExpress.XtraEditors.ButtonPanel.IBaseButton[] {
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Kaydet", true, windowsUIButtonImageOptions3, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Kaydet", true, windowsUIButtonImageOptions1, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false),
             new DevExpress.XtraBars.Docking2010.WindowsUISeparator(),
-            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Kapat", true, windowsUIButtonImageOptions4, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
+            new DevExpress.XtraBars.Docking2010.WindowsUIButton("Kapat", true, windowsUIButtonImageOptions2, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1, false)});
             this.windowsUIButtonPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.windowsUIButtonPanel.EnableImageTransparency = true;
             this.windowsUIButtonPanel.ForeColor = System.Drawing.Color.White;
@@ -457,6 +475,19 @@
             this.lytLokasyonlar.TabIndex = 0;
             this.lytLokasyonlar.Text = "layoutControl2";
             // 
+            // lblLokasyonUyarı
+            // 
+            this.lblLokasyonUyarı.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
+            this.lblLokasyonUyarı.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(61)))), ((int)(((byte)(51)))));
+            this.lblLokasyonUyarı.Appearance.Options.UseFont = true;
+            this.lblLokasyonUyarı.Appearance.Options.UseForeColor = true;
+            this.lblLokasyonUyarı.Location = new System.Drawing.Point(12, 12);
+            this.lblLokasyonUyarı.Name = "lblLokasyonUyarı";
+            this.lblLokasyonUyarı.Size = new System.Drawing.Size(18, 24);
+            this.lblLokasyonUyarı.StyleController = this.lytLokasyonlar;
+            this.lblLokasyonUyarı.TabIndex = 11;
+            this.lblLokasyonUyarı.Text = "...";
+            // 
             // txtMiktar
             // 
             this.txtMiktar.Location = new System.Drawing.Point(341, 40);
@@ -713,6 +744,15 @@
             this.emptySpaceItem10.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem10.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // lytLokasyonLabel
+            // 
+            this.lytLokasyonLabel.Control = this.lblLokasyonUyarı;
+            this.lytLokasyonLabel.Location = new System.Drawing.Point(0, 0);
+            this.lytLokasyonLabel.Name = "lytLokasyonLabel";
+            this.lytLokasyonLabel.Size = new System.Drawing.Size(959, 28);
+            this.lytLokasyonLabel.TextSize = new System.Drawing.Size(0, 0);
+            this.lytLokasyonLabel.TextVisible = false;
+            // 
             // xtraTabPage3
             // 
             this.xtraTabPage3.Controls.Add(this.lytPersoneller);
@@ -723,6 +763,9 @@
             // 
             // lytPersoneller
             // 
+            this.lytPersoneller.Controls.Add(this.btnPersonelEkle);
+            this.lytPersoneller.Controls.Add(this.luePersonelSec);
+            this.lytPersoneller.Controls.Add(this.gridControlPers);
             this.lytPersoneller.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lytPersoneller.Location = new System.Drawing.Point(0, 0);
             this.lytPersoneller.Name = "lytPersoneller";
@@ -731,13 +774,106 @@
             this.lytPersoneller.TabIndex = 0;
             this.lytPersoneller.Text = "layoutControl2";
             // 
+            // btnPersonelEkle
+            // 
+            this.btnPersonelEkle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnPersonelEkle.Location = new System.Drawing.Point(367, 12);
+            this.btnPersonelEkle.Name = "btnPersonelEkle";
+            this.btnPersonelEkle.Size = new System.Drawing.Size(165, 36);
+            this.btnPersonelEkle.StyleController = this.lytPersoneller;
+            this.btnPersonelEkle.TabIndex = 6;
+            this.btnPersonelEkle.Text = "Ekle";
+            this.btnPersonelEkle.Click += new System.EventHandler(this.btnPersonelEkle_Click);
+            // 
+            // luePersonelSec
+            // 
+            this.luePersonelSec.Location = new System.Drawing.Point(12, 12);
+            this.luePersonelSec.Name = "luePersonelSec";
+            this.luePersonelSec.Properties.AdvancedModeOptions.Label = "Personel Seç";
+            this.luePersonelSec.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.luePersonelSec.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("TcNo", "TcNo", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("AdSoyad", "Adı Soyadı")});
+            this.luePersonelSec.Properties.DisplayMember = "AdSoyad";
+            this.luePersonelSec.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.luePersonelSec.Properties.UseAdvancedMode = DevExpress.Utils.DefaultBoolean.True;
+            this.luePersonelSec.Properties.ValueMember = "TcNo";
+            this.luePersonelSec.Size = new System.Drawing.Size(351, 36);
+            this.luePersonelSec.StyleController = this.lytPersoneller;
+            this.luePersonelSec.TabIndex = 5;
+            // 
+            // gridControlPers
+            // 
+            this.gridControlPers.Location = new System.Drawing.Point(12, 62);
+            this.gridControlPers.MainView = this.gridViewPers;
+            this.gridControlPers.Name = "gridControlPers";
+            this.gridControlPers.Size = new System.Drawing.Size(520, 328);
+            this.gridControlPers.TabIndex = 4;
+            this.gridControlPers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewPers});
+            // 
+            // gridViewPers
+            // 
+            this.gridViewPers.GridControl = this.gridControlPers;
+            this.gridViewPers.Name = "gridViewPers";
+            // 
             // layoutControlGroup3
             // 
             this.layoutControlGroup3.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup3.GroupBordersVisible = false;
+            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem13,
+            this.emptySpaceItem11,
+            this.layoutControlItem14,
+            this.emptySpaceItem13,
+            this.layoutControlItem15});
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.Size = new System.Drawing.Size(979, 402);
             this.layoutControlGroup3.TextVisible = false;
+            // 
+            // layoutControlItem13
+            // 
+            this.layoutControlItem13.Control = this.gridControlPers;
+            this.layoutControlItem13.Location = new System.Drawing.Point(0, 50);
+            this.layoutControlItem13.Name = "layoutControlItem13";
+            this.layoutControlItem13.Size = new System.Drawing.Size(524, 332);
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem13.TextVisible = false;
+            // 
+            // emptySpaceItem11
+            // 
+            this.emptySpaceItem11.AllowHotTrack = false;
+            this.emptySpaceItem11.Location = new System.Drawing.Point(524, 0);
+            this.emptySpaceItem11.Name = "emptySpaceItem11";
+            this.emptySpaceItem11.Size = new System.Drawing.Size(435, 382);
+            this.emptySpaceItem11.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.Control = this.luePersonelSec;
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem14.Name = "layoutControlItem14";
+            this.layoutControlItem14.Size = new System.Drawing.Size(355, 40);
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem14.TextVisible = false;
+            // 
+            // emptySpaceItem13
+            // 
+            this.emptySpaceItem13.AllowHotTrack = false;
+            this.emptySpaceItem13.Location = new System.Drawing.Point(0, 40);
+            this.emptySpaceItem13.Name = "emptySpaceItem13";
+            this.emptySpaceItem13.Size = new System.Drawing.Size(524, 10);
+            this.emptySpaceItem13.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem15
+            // 
+            this.layoutControlItem15.Control = this.btnPersonelEkle;
+            this.layoutControlItem15.Location = new System.Drawing.Point(355, 0);
+            this.layoutControlItem15.Name = "layoutControlItem15";
+            this.layoutControlItem15.Size = new System.Drawing.Size(169, 40);
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem15.TextVisible = false;
             // 
             // xtraTabPage4
             // 
@@ -783,28 +919,6 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(985, 450);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // lblLokasyonUyarı
-            // 
-            this.lblLokasyonUyarı.Appearance.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Bold);
-            this.lblLokasyonUyarı.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(61)))), ((int)(((byte)(51)))));
-            this.lblLokasyonUyarı.Appearance.Options.UseFont = true;
-            this.lblLokasyonUyarı.Appearance.Options.UseForeColor = true;
-            this.lblLokasyonUyarı.Location = new System.Drawing.Point(12, 12);
-            this.lblLokasyonUyarı.Name = "lblLokasyonUyarı";
-            this.lblLokasyonUyarı.Size = new System.Drawing.Size(18, 24);
-            this.lblLokasyonUyarı.StyleController = this.lytLokasyonlar;
-            this.lblLokasyonUyarı.TabIndex = 11;
-            this.lblLokasyonUyarı.Text = "...";
-            // 
-            // lytLokasyonLabel
-            // 
-            this.lytLokasyonLabel.Control = this.lblLokasyonUyarı;
-            this.lytLokasyonLabel.Location = new System.Drawing.Point(0, 0);
-            this.lytLokasyonLabel.Name = "lytLokasyonLabel";
-            this.lytLokasyonLabel.Size = new System.Drawing.Size(959, 28);
-            this.lytLokasyonLabel.TextSize = new System.Drawing.Size(0, 0);
-            this.lytLokasyonLabel.TextVisible = false;
             // 
             // SayimBaslat
             // 
@@ -863,15 +977,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lytLokasyonLabel)).EndInit();
             this.xtraTabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lytPersoneller)).EndInit();
+            this.lytPersoneller.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.luePersonelSec.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlPers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewPers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             this.xtraTabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lytAyarlar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lytLokasyonLabel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -937,5 +1060,14 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraEditors.LabelControl lblLokasyonUyarı;
         private DevExpress.XtraLayout.LayoutControlItem lytLokasyonLabel;
+        private DevExpress.XtraEditors.SimpleButton btnPersonelEkle;
+        private DevExpress.XtraEditors.LookUpEdit luePersonelSec;
+        private DevExpress.XtraGrid.GridControl gridControlPers;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewPers;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem11;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem13;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
     }
 }

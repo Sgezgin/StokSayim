@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,5 +32,8 @@ namespace StokSayim.Models
         public DateTime? EklemeTarih { get; set; }
 
         public DateTime? DuzenlemeTarih { get; set; }
+
+        [NotMapped]
+        public string AdSoyad => $"{Adi} {Soyadi}";
     }
 }
