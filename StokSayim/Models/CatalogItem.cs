@@ -20,6 +20,10 @@ namespace StokSayim.Models
         [MaxLength(100)]
         public string Category { get; set; }
 
+        [MaxLength(100)]
+        public string PrivateCode { get; set; }
+        
+
         public int BrandID { get; set; }
 
         [ForeignKey("BrandID")]

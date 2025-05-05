@@ -10,11 +10,22 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using StokSayim.Models;
 using StokSayim.Data.Repositories;
+using System.IO;
+using Shell32;
+using System.Runtime.InteropServices.ComTypes;
+using StokSayim.DTOs;
+using StokSayim.Helpers;
+using System.Data.SQLite;
+using System.Diagnostics;
+using StokSayim.Services;
+using StokSayim.Service;
 
 namespace StokSayim.Moduller.Sayim
 {
     public partial class SayimBaslat : DevExpress.XtraEditors.XtraUserControl
     {
+        private string txtJsonFilePath = "";
+
         private Models.Sayim _sayim;
         private Models.Store _store;
         private PersonelRepository _personelRepository;
@@ -33,7 +44,7 @@ namespace StokSayim.Moduller.Sayim
         private List<AlanTipTanim> alanTipTanimList = new List<AlanTipTanim>();
 
 
-        public SayimBaslat(Models.Sayim sayim,Models.Store store) //Models.Personel pers, PersonelRepository personelRepository
+        public SayimBaslat(Models.Sayim sayim, Models.Store store) //Models.Personel pers, PersonelRepository personelRepository
         {
             InitializeComponent();
             _sayim = sayim;
@@ -46,14 +57,36 @@ namespace StokSayim.Moduller.Sayim
             _sayimLokasyonDetayRepository = Global.SayimLokasyonDetayRepository;
             _sayimRepository = Global.SayimRepository;
             _personelRepository = Global.PersonelRepository;
-          
+
+
 
         }
 
+        private void MarkaKatalog()
+        {
+
+            if (_sayim.Id > 0)
+            {
+                Moduller.Katalog.KatalogList ctr = new Katalog.KatalogList(
+                 Global.CatalogRepository,
+                 Global.BulkImportService,
+                 _sayim.BrandID,
+                 "..."
+                 );
+
+                ctr.Dock = DockStyle.Fill;
+                panelKatalog.Controls.Clear();
+                panelKatalog.Controls.Add(ctr);
+
+            }
+        }
+
+
+
         private void SayimKontrol()
         {
-            if(_sayim.Id > 0)
-            {             
+            if (_sayim.Id > 0)
+            {
                 lytLokasyonlar.Visible = true;
                 lytAyarlar.Visible = true;
                 lytPersoneller.Visible = true;
@@ -73,12 +106,12 @@ namespace StokSayim.Moduller.Sayim
         {
             try
             {
-                if(_sayim.Id > 0)
+                if (_sayim.Id > 0)
                 {
                     sayimPersonelList = _sayimPersonelRepository.Find(x => x.SayimId == _sayim.Id).ToList();
                     gridControlPers.DataSource = sayimPersonelList;
                 }
-          
+
             }
             catch (Exception ex)
             {
@@ -89,7 +122,7 @@ namespace StokSayim.Moduller.Sayim
 
         private void SayimBaslat_Load(object sender, EventArgs e)
         {
-   
+
 
             alanTipTanimList = _alanTipTanimRepo.GetAll().ToList();
             lueAlanTipi.Properties.DataSource = alanTipTanimList;
@@ -108,8 +141,9 @@ namespace StokSayim.Moduller.Sayim
                 lueMagaza.Properties.ReadOnly = true;
             }
 
-            if(_sayim.Id > 0)
+            if (_sayim.Id > 0)
             {
+                MarkaKatalog();
                 lueMagaza.EditValue = _sayim.StoreID;
                 lueMarka.EditValue = _sayim.BrandID;
 
@@ -137,8 +171,8 @@ namespace StokSayim.Moduller.Sayim
 
         private void windowsUIButtonPanel_ButtonClick(object sender, DevExpress.XtraBars.Docking2010.ButtonEventArgs e)
         {
-            var caption = e.Button.Properties.Caption;     
-            if (caption == "Kaydet") Kaydet(); 
+            var caption = e.Button.Properties.Caption;
+            if (caption == "Kaydet") Kaydet();
             else if (caption == "Kapat") (this.Parent as Form).DialogResult = DialogResult.No;
         }
 
@@ -167,7 +201,7 @@ namespace StokSayim.Moduller.Sayim
 
 
                         windowsUIButtonPanel.Buttons["Kaydet"].Properties.Caption = "Güncelle";
-                       
+
                     }
                     else
                     {
@@ -192,7 +226,7 @@ namespace StokSayim.Moduller.Sayim
                 {
                     MessageBox.Show("Hata: " + ex.Message);
                 }
-               
+
             }
         }
         private void Sil()
@@ -204,7 +238,7 @@ namespace StokSayim.Moduller.Sayim
         {
             try
             {
-                if(_sayim.Id == 0)
+                if (_sayim.Id == 0)
                     XtraMessageBox.Show("Sayım Bilgisini Kaydedin", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 if (string.IsNullOrEmpty(txtMiktar.EditValue.ToString()))
@@ -220,10 +254,10 @@ namespace StokSayim.Moduller.Sayim
                     sayimLokasyon.Aktif = 1;
                     sayimLokasyon.AlanKod = alanKodu;
                     sayimLokasyon.Miktar = miktar;
-                    sayimLokasyon.SayimId =_sayim.Id;
+                    sayimLokasyon.SayimId = _sayim.Id;
                     _sayimLokasyonRepository.Add(sayimLokasyon);
 
-                    List<SayimLokasyonDetay> lokasyonDetayList = new List<SayimLokasyonDetay>(); 
+                    List<SayimLokasyonDetay> lokasyonDetayList = new List<SayimLokasyonDetay>();
 
                     for (int i = 1; i <= miktar; i++)
                     {
@@ -245,8 +279,8 @@ namespace StokSayim.Moduller.Sayim
                             AlanKod = alanKodu,
                             LokasyonKod = lokasyonKod,
                             SayimLokasyonId = sayimLokasyon.Id,
-                           IptalAciklama="",
-                           Aktif =1
+                            IptalAciklama = "",
+                            Aktif = 1
                         });
                     }
 
@@ -269,12 +303,12 @@ namespace StokSayim.Moduller.Sayim
 
         private void lueAlanTipi_EditValueChanged(object sender, EventArgs e)
         {
-            if(lueAlanTipi.EditValue != null)
+            if (lueAlanTipi.EditValue != null)
             {
                 int secilenId = Convert.ToInt32(lueAlanTipi.EditValue);
 
                 AlanTipTanim secilenTipTanim = alanTipTanimList.FirstOrDefault(x => x.Id == secilenId);
-                if(secilenTipTanim != null)
+                if (secilenTipTanim != null)
                 {
                     string alankodu = secilenTipTanim.AlanKod;
                     string aciklama = secilenTipTanim.Aciklama;
@@ -347,7 +381,7 @@ namespace StokSayim.Moduller.Sayim
                 {
                     int tipDegeri = selectedPersonel.Tip;
                     string tckn = selectedPersonel.TcNo;
-                    if(sayimPersonelList.FirstOrDefault(x=> x.TcNo == tckn) == null)
+                    if (sayimPersonelList.FirstOrDefault(x => x.TcNo == tckn) == null)
                     {
                         SayimPersonel yeniPersEkle = new SayimPersonel();
                         yeniPersEkle.TcNo = tckn;
@@ -359,7 +393,7 @@ namespace StokSayim.Moduller.Sayim
 
                         SayimPersonelListele();
                     }
-               
+
                 }
             }
         }
@@ -401,5 +435,161 @@ namespace StokSayim.Moduller.Sayim
                 }
             }
         }
+
+        private void btnTerminalVeriGonder_Click(object sender, EventArgs e)
+        {
+            SendToDevice();
+        }
+
+        private void ListConnectedDevices()
+        {
+            cmbUsbDrives.Properties.Items.Clear();
+
+            // Önce normal sürücüleri ekleyelim
+            DriveInfo[] allDrives = DriveInfo.GetDrives();
+            foreach (DriveInfo drive in allDrives)
+            {
+                if (drive.IsReady)
+                {
+                    string driveInfo = $"{drive.Name} ({drive.DriveType})";
+                    if (!string.IsNullOrEmpty(drive.VolumeLabel))
+                    {
+                        driveInfo += $" - {drive.VolumeLabel}";
+                    }
+                    cmbUsbDrives.Properties.Items.Add(driveInfo);
+                }
+            }
+
+            // Şimdi MTP/PTP cihazlarını ekleyelim
+            try
+            {
+                Shell shell = new Shell();
+                Folder folder = shell.NameSpace(0x11); // Bilgisayarım/Bu Bilgisayar klasörü
+
+                foreach (FolderItem item in folder.Items())
+                {
+                    if (item.IsFolder)
+                    {
+                        cmbUsbDrives.Properties.Items.Add($"{item.Name} (MTP/PTP Cihazı)");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"MTP cihazlarını listelerken hata: {ex.Message}", "Hata",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (cmbUsbDrives.Properties.Items.Count > 0)
+            {
+                cmbUsbDrives.SelectedIndex = 0;
+            }
+            else
+            {
+                MessageBox.Show("Hiç sürücü veya cihaz bulunamadı!", "Uyarı",
+                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnTerminalReflesh_Click(object sender, EventArgs e)
+        {
+            ListConnectedDevices();
+        }
+
+
+
+
+        private void btnCihazDataHazirla_Click(object sender, EventArgs e)
+        {
+            var exportService = new MobileExportServiceJson(Global.ConnectionString);
+            var exportedData = exportService.ExportSayimToJson(_sayim.Id); 
+
+            // JSON dosyalarını belirli bir klasöre kaydetme
+            exportService.SaveJsonToFile(exportedData, @"C:\Temp\StokSayimExport",_sayim.SayimKodu);
+
+        }
+
+
+
+        private async void SendToDevice()
+        {
+            try
+            {
+                // UI bileşenlerini hazırla
+                progressBarControl1.Properties.Minimum = 0;
+                progressBarControl1.Properties.Maximum = 100;
+                progressBarControl1.EditValue = 0;
+                progressBarControl1.Visible = true;
+
+                // Butonları devre dışı bırak
+                //btnExport.Enabled = false;
+                //btnCancel.Enabled = false;
+
+                // Kursör değiştir
+                this.Cursor = Cursors.WaitCursor;
+
+                // Görevi arka planda çalıştır
+                await Task.Run(() => {
+                    // Sayım ID'sini al
+                    int sayimId = _sayim.Id;
+
+          
+
+                    // DevExpress ProgressBar için IProgress arabirimi oluştur
+                    var progressReporter = new Progress<int>(value => {
+                        // ProgressBar değerini güncelle
+                        if (progressBarControl1.InvokeRequired)
+                        {
+                            progressBarControl1.Invoke(new Action(() => {
+                                progressBarControl1.EditValue = value;
+                                progressBarControl1.Update();
+                                Application.DoEvents();
+                            }));
+                        }
+                        else
+                        {
+                            progressBarControl1.EditValue = value;
+                            progressBarControl1.Update();
+                            Application.DoEvents();
+                        }
+                    });
+
+                    // MobileExportService'i kullan
+                    var exportService = new MobileExportService(Global.ConnectionString);
+                    bool success = exportService.ExportSayimToMobile(sayimId);
+
+                    return success;
+                });
+
+                // Verilerin başarıyla aktarıldığını bildir
+                DevExpress.XtraEditors.XtraMessageBox.Show(
+                    "Veriler başarıyla mobil cihaz için hazırlandı ve kopyalama talimatları gösterildi.",
+                    "İşlem Başarılı",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                // İşlem tamamlandığında gridView'ı yenile
+             
+            }
+            catch (Exception ex)
+            {
+                // Hata durumunu bildir
+                DevExpress.XtraEditors.XtraMessageBox.Show(
+                    $"Veri aktarımı sırasında bir hata oluştu:\n{ex.Message}",
+                    "Hata",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Her durumda UI bileşenlerini eski haline getir
+                progressBarControl1.Visible = false;
+                //btnExport.Enabled = true;
+                //btnCancel.Enabled = true;
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+
     }
 }

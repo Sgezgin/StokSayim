@@ -56,6 +56,7 @@ namespace StokSayim
         public static SayimDetayRepository SayimDetayRepository { get; private set; }
         public static SayimLokasyonRepository SayimLokasyonRepository { get; private set; }
         public static SayimLokasyonDetayRepository SayimLokasyonDetayRepository { get; private set; }
+        public static SayimPersonelRepository SayimPersonelRepository { get; private set; }
 
 
         /// <summary>
@@ -82,6 +83,7 @@ namespace StokSayim
             SayimDetayRepository = new SayimDetayRepository(DbContext);
             SayimLokasyonRepository = new SayimLokasyonRepository(DbContext);
             SayimLokasyonDetayRepository = new SayimLokasyonDetayRepository(DbContext);
+            SayimPersonelRepository = new SayimPersonelRepository(DbContext);
 
 
             // Servisleri oluştur

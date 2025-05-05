@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using StokSayim.Service;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,6 +37,9 @@ namespace StokSayim
 
         private void login()
         {
+            //string dbPath = SQLiteCreator.CreateDemoDatabase();
+            //Console.WriteLine($"Veritabanı oluşturuldu: {dbPath}");
+
             MainMenu frm = new MainMenu();
             this.Hide();
             frm.ShowDialog();

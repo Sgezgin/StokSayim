@@ -39,11 +39,18 @@ namespace StokSayim.Data.Services
                 catalogData.Columns.Add("CustomFields", typeof(string));
                 catalogData.Columns.Add("CreatedDate", typeof(DateTime));
                 catalogData.Columns.Add("UpdatedDate", typeof(DateTime));
+                catalogData.Columns.Add("PrivateCode", typeof(string));
+
 
                 // Standart alan eşleştirmeleri
                 var barcodeMapping = columnMappings.FirstOrDefault(m => m.DestinationField == "Barcode");
                 var descriptionMapping = columnMappings.FirstOrDefault(m => m.DestinationField == "Description");
                 var categoryMapping = columnMappings.FirstOrDefault(m => m.DestinationField == "Category");
+
+                var privateCodeMapping = columnMappings.FirstOrDefault(m =>
+           m.DestinationField == "PrivateCode" ||
+           m.DestinationField == "Özel Kod" ||
+           m.DestinationField == "OzelKod");
 
                 // Barkod mapping kontrolü
                 if (barcodeMapping == null || string.IsNullOrEmpty(barcodeMapping.SourceColumn))
@@ -100,6 +107,10 @@ namespace StokSayim.Data.Services
                     newRow["CustomFields"] = JsonConvert.SerializeObject(customFields);
                     newRow["CreatedDate"] = DateTime.Now;
                     newRow["UpdatedDate"] = DateTime.Now;
+
+                    newRow["PrivateCode"] = privateCodeMapping != null ?
+            GetSourceColumnValue(sourceRow, privateCodeMapping.SourceColumn) :
+            string.Empty;
 
                     catalogData.Rows.Add(newRow);
                     processedRows++;
@@ -161,6 +172,8 @@ namespace StokSayim.Data.Services
                             bulkCopy.ColumnMappings.Add("CustomFields", "CustomFields");
                             bulkCopy.ColumnMappings.Add("CreatedDate", "CreatedDate");
                             bulkCopy.ColumnMappings.Add("UpdatedDate", "UpdatedDate");
+                            bulkCopy.ColumnMappings.Add("PrivateCode", "PrivateCode");
+
 
                             await bulkCopy.WriteToServerAsync(dataTable);
                         }

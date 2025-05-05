@@ -8,6 +8,8 @@ using StokSayim.Data.Repositories;
 using StokSayim.Data;
 using StokSayim.Data.Services;
 using System.Configuration;
+using System.Threading.Tasks;
+using StokSayim.Service;
 
 namespace StokSayim
 {
@@ -21,6 +23,13 @@ namespace StokSayim
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+         
+
+            string exportFolder = @"C:\Temp\StokSayimExport"; // İstediğiniz bir klasör yolu
+
+            // API Sunucusunu ayrı bir thread'de başlat
+            Task.Run(() => StartApiServer(exportFolder));
 
             // Global servisleri başlat
             try
@@ -38,5 +47,31 @@ namespace StokSayim
             }
 
         }
+
+        static async Task StartApiServer(string exportFolder)
+        {
+            try
+            {
+                // MobileApiServer sınıfını oluştur
+                var apiServer = new MobileApiServer(exportFolder);
+
+                // Konsol penceresini göster (opsiyonel)
+                AllocConsole();
+
+                Console.WriteLine("API Sunucusu başlatılıyor...");
+
+                // API Sunucusunu başlat
+                await apiServer.StartAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"API Sunucusu hatası: {ex.Message}",
+                    "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Konsol penceresi açmak için Windows API çağrısı
+        [System.Runtime.InteropServices.DllImport("kernel32.dll")]
+        static extern bool AllocConsole();
     }
 }
